@@ -1,0 +1,64 @@
+// This file borrows basic structures from bootstrap so that we can customize it.
+// The right way to do this would be to incorporate the Sass version of Bootstrap
+// and override variables. Or, we could remove dependency on full Bootstrap 
+// completely and port only the things we need. Time will tell.
+
+
+// Media queries breakpoints
+// ============================================================================
+
+// Extra small screen / phone
+$screen-xs-min: 480px;
+
+// Small screen / tablet
+$screen-sm-min: 768px;
+
+// Medium screen / desktop
+$screen-md-min: 992px;
+
+// Large screen / wide desktop
+$screen-lg-min: 1200px;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+
+// Containers and Grid
+// ============================================================================
+
+$grid-gutter-width: 30px !default;
+
+// Small screen / tablet
+$container-sm: (720px + $grid-gutter-width);
+
+// Medium screen / desktop
+$container-md: (940px + $grid-gutter-width);
+
+// Large screen / wide desktop
+//$container-lg: (1140px + $grid-gutter-width);
+$container-lg: $container-md;
+
+
+// Mixins  
+// ============================================================================
+
+@mixin container-fixed($gutter) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+  @include clearfix;
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}

@@ -1,0 +1,379 @@
+@import "bs";
+
+// Basics  
+// ============================================================================
+
+body {
+  color: #333;
+  font-family: ff-tisa-web-pro;
+}
+
+.rc-container {
+  margin: 0;
+  padding: 0;
+  width: 100%; 
+
+  @media (min-width: $screen-md-min) {
+    @include container-fixed($grid-gutter-width);
+    width: $container-md;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    @include container-fixed($grid-gutter-width);    
+    width: $container-lg;
+  }
+}
+
+
+// Header
+// ============================================================================
+
+@mixin header($font-size, $baseline-offset-top, $baseline-offset-bottom) {
+
+  .rc-header {
+    $horizontal-inset: 20px;
+    $font-baseline-offset: ceil(-$font-size / 12);
+
+    padding-top: $baseline-offset-top - $font-size - $font-baseline-offset;
+    margin-bottom: $baseline-offset-bottom + $font-baseline-offset + $font-size;
+  
+    h1 {
+      font-size: $font-size;
+      font-weight: 300;
+      line-height: 1;
+      margin: 0 0 0 $horizontal-inset;
+      padding: 0;
+      
+      a {
+        transition: color 0.2s ease;
+        color: #000;
+        
+        &:hover {
+          color: #7F7F7F;
+          text-decoration: none;
+        }
+      }
+    }
+  
+    .rc-menu-button {
+      $height: 17px;
+      $width: 25px;
+      
+      float: right;
+      display: block;
+      height: $height;
+      margin-right: $horizontal-inset;
+      margin-top: $font-size - $height + $font-baseline-offset;
+      width: $width;
+      
+      // Use this crazy inverse hamburger menu because doing opacity changes
+      // creates a stacking context, which puts the button on top of the menu.
+      background-image: url(/img/Hamburger-Inverse.svg);
+      background-position: 0 2px;
+      background-repeat: no-repeat;
+      background-color: #B2B2B2;
+      transition: background-color 0.2s ease;
+      
+      &:hover {
+        background-color: #7F7F7F;
+      }
+    }
+  }
+}
+
+
+@include header(16px, 30px, 20px);
+
+@media (min-width: $screen-sm-min) {
+  @include header(24px, 60px, 50px);
+}
+
+
+// Menu
+// ============================================================================
+
+.rc-menu-container {
+
+  a {
+    color: #666;
+
+    &:hover {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}
+    
+// Menu on XS.
+@media (max-width: $screen-xs-max) {
+
+  .rc-menu-button { 
+    display: none;
+  }
+
+  .rc-menu-container {
+    $font-size: 16px;
+    
+    .rc-menu-wrapper {
+      padding: 20px - $font-size + $font-size / 2 20px 1px 20px;
+      margin-bottom: $font-size / 2;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.09);
+      background-image: linear-gradient(0, #fff 0%, #F4F4F4 100%);
+      
+      &.rc-menu-hidden {
+        display: none;
+      }
+
+      .rc-menu-content {
+        font-size: $font-size;
+        line-height: 36px;
+      }
+    }
+  }
+}
+
+// Menu on all others.
+@media (min-width: $screen-sm-min) {
+
+  .rc-menu-container {
+    $font-size: 14px;
+    $width: 160px;
+    $grid-offset: 15px; // Compensate for grid padding that extends past the page
+  
+    height: 100%;
+    position: fixed;
+    pointer-events: none; // Allow events through this element, even though it covers the document.
+    
+    // Handy for debugging.
+    // background-color: rgba(255, 0, 0, 0.5);
+
+    @media (min-width: $screen-sm-min) {
+      width: 100%;
+    }
+
+    // The combination of left and margin will center an absolutely positioned element.
+    @media (min-width: $screen-md-min) {
+      left: 50%;
+      width: $container-md - $grid-gutter-width;
+      margin-left: -$container-md / 2 + $grid-gutter-width / 2;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      left: 50%;
+      width: $container-lg - $grid-gutter-width;
+      margin-left: -$container-lg / 2 + $grid-gutter-width / 2;
+    }
+  
+    .rc-menu-mask {
+      height: 100%;
+      overflow: hidden;
+      position: absolute;
+      pointer-events: inherit; // Continue allowing events.
+      right: 0;
+      width: $width + 10px; // extra for the shadow
+    }
+
+    .rc-menu-wrapper {
+      pointer-events: auto; // Restore standard pointer to block events.
+      height: 100%;
+      position: absolute;
+      right: 0;
+      width: $width;
+    
+      transition: right 0.4s ease-in-out,
+                  background-position 0.4s ease-in-out,
+                  box-shadow 0.1s ease 0.2s;
+      background-color: #fff;
+      background-image: linear-gradient(270deg, #FFFFFF 0%, #F4F4F4 100%, #FFF 200%);
+      box-shadow: -2px 0px 2px 0px rgba(0,0,0,0.09);
+    
+      &.rc-menu-hidden {
+        background-position: -160px;
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+        right: -$width;
+      }
+    }
+
+    .rc-menu-button { 
+      $height: 14px;
+      $width: 14px;
+    
+      background-image: url(/img/Hamburger-X.png);
+      background-repeat: no-repeat;
+      display: block;
+      position: absolute;
+      top: 60px - $height;
+      right: 20px + 6px;
+      height: $height;
+      width: $width;
+
+      opacity: 0.4;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }   
+    }    
+    
+    .rc-menu-content {
+      font-size: $font-size;
+      line-height: 24px;
+      margin-left: 20px;
+      margin-top: 112px - 14px - 6px;
+
+      // Extra space for fingers.
+      @media (max-width: $screen-sm-max) {
+        line-height: 30px;
+        margin-top: 112px - 14px - 8px;
+      
+        ul {
+          padding-bottom: 7px;
+        }
+      }
+    }
+  }
+}
+
+
+// Featured Image
+// ============================================================================
+
+.rc-featured-image {
+  margin-bottom: 30px;
+    
+  .rc-feat,
+  .rc-name {
+    display: block;
+    text-align: center;
+  }
+  
+  .rc-feat {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16px;
+    margin-top: 30px - 14px;
+
+    @media (min-width: $screen-sm-min) {
+      margin-top: 40px - 14px;
+    }  
+  }
+  
+  .rc-name {
+    font-size: 16px;
+    font-weight: 400;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 18px;
+    }
+  }
+}   
+
+
+// Gallery
+// ============================================================================
+
+.rc-gallery-header-container {
+  $font-size-big: 18px;
+  $font-size: 14px;
+
+  img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .rc-content {
+    background-image: linear-gradient(180deg, #FFFFFF 0%, #F4F4F4 100%);
+    padding-bottom: 30px;
+
+    @media (min-width: $screen-sm-min) {
+      padding-bottom: 50px;
+    }    
+  }
+
+  .rc-intro,
+  .rc-copy {
+    max-width: 620px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .rc-intro {
+    padding-top: 40px - $font-size-big;
+    padding-bottom: 30px - $font-size;
+
+    @media (min-width: $screen-sm-min) {
+      padding-top: 60px - $font-size-big;
+      padding-bottom: 44px - $font-size;
+    }
+
+    .rc-title,
+    .rc-subtitle {
+      display: block;
+      text-align: center;
+    }
+  
+    .rc-title {    
+      font-size: $font-size-big; 
+      font-weight: 400; 
+      line-height: 20px;
+    }
+  
+    .rc-subtitle {  
+      font-size: $font-size;  
+      font-weight: 300;     
+      line-height: 20px;
+    }
+  }
+  
+  .rc-copy {
+    font-size: 14px; 
+    font-weight: 300;     
+    line-height: 23px;
+  }
+}   
+
+
+.rc-gallery-container {
+  margin-top: 40px;
+
+  @media (min-width: $screen-sm-min) {
+    margin-top: 60px;
+  }
+    
+  img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    @media (min-width: $screen-sm-min) {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+// Footer
+// ============================================================================
+
+footer {
+  color: #999;
+  font-size: 12px;
+  font-weight: 300;
+  padding-bottom: 20px;
+  padding-top: 30px;
+  text-align: center;
+
+  @media (min-width: $screen-sm-min) {
+    br {
+      display: none;
+    }
+  }  
+}
+
+
