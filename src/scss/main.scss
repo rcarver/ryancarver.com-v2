@@ -137,7 +137,17 @@ body {
 
       .rc-menu-content {
         font-size: $font-size;
-        line-height: 36px;
+        line-height: 1;
+        margin-top: 7px;
+        
+        li {
+          margin-bottom: 16px;
+          line-height: 20px;
+        }
+        
+        h3 {
+          font-size: inherit;
+        }
       }
     }
   }
@@ -228,17 +238,31 @@ body {
     
     .rc-menu-content {
       font-size: $font-size;
-      line-height: 24px;
-      margin-left: 20px;
-      margin-top: 112px - 14px - 6px;
+      line-height: 1;
+      padding: 0 20px;
+      margin-top: 106px - 13px;
+      
+      h3 {
+        font-size: inherit;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+      
+      li {
+        line-height: 16px;
+        margin-bottom: 10px;
+      }
 
       // Extra space for fingers.
       @media (max-width: $screen-sm-max) {
-        line-height: 30px;
-        margin-top: 112px - 14px - 8px;
+        margin-top: 106px - 15px;
       
         ul {
           padding-bottom: 7px;
+        }
+        
+        li {
+          line-height: 20px;
         }
       }
     }

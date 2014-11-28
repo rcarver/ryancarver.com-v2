@@ -2,6 +2,7 @@
   var TRANSITION_DURATION = 400;
 
   var visible = true;
+  var menuContainer = document.getElementById("rc-menu-container");
   var menuWindow = document.getElementById("rc-menu-window");
   var activeMenuButton = document.getElementById("rc-active-menu-button");
   var menuButton = document.getElementById("rc-menu-button");
@@ -35,8 +36,12 @@
     }
   }
 
-  // Start out hidden immediately.
-  hide(true);
+  // Show control elements, which are hidden in the markup.
+  menuButton.style.display = "block";
+  menuContainer.style.display = "block";
+  
+  // Start with the menu hidden.
+  hide();
   
   menuButton.onclick = activeMenuButton.onclick = function(e) {
     e.stopPropagation();
