@@ -129,6 +129,83 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 1
 		},
+	"\/img\/gallery\/portraits\/gallery-1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 281730,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-1.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-10.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 380879,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-10.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-10.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-11.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 429506,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-11.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-11.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-12.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 200226,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-12.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-12.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-13.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 297850,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-13.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-13.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-14.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 256134,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-14.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-14.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-15.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 390441,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-15.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-15.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/gallery\/portraits\/gallery-16.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -147,6 +224,105 @@
 		"initialSize": 0,
 		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-17.jpg",
 		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-17.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 443547,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-2.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 339258,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-3.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-3.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-4.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 236243,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-4.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-4.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-5.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 282492,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-5.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-5.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-6.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 549766,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-6.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-6.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-7.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 325557,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-7.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-7.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-8.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 441704,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-8.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-8.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/portraits\/gallery-9.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 301709,
+		"inputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-9.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/portraits\/gallery-9.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/gallery\/sun-sand\/gallery-11.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/gallery\/sun-sand\/gallery-11.jpg",
+		"outputAbbreviatedPath": "\/img\/gallery\/sun-sand\/gallery-11.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -400,6 +576,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/src\/pages\/sun-sand.kit": {
+		"fileType": 2048,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/src\/pages\/sun-sand.kit",
+		"outputAbbreviatedPath": "\/sun-sand.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/src\/scss\/_bs.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -431,6 +616,15 @@
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
 		"useLibsass": 0
+		},
+	"\/sun-sand.html": {
+		"fileType": 8192,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sun-sand.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
 		}
 	},
 "hooks": [
