@@ -327,6 +327,11 @@ body {
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
+    
+    // Looks better when the copy is very short.
+    &.rc-copy-center {
+      text-align: center;
+    }
   }
 
   .rc-intro {
