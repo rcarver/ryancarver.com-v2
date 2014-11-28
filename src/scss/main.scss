@@ -1,5 +1,16 @@
 @import "bs";
 
+/*
+Pixels	Ems	Ems @ 16	% of 13
+36.000	2.571	2.25	276.923
+31.500	2.25	1.969	242.308
+24.000	1.714	1.5	184.615
+21.000	1.5	1.313	161.538
+16.000	1.143	1	123.077
+14.000	1	0.875	107.692
+10.667	0.762	0.667	82.054
+*/
+
 // Basics  
 // ============================================================================
 
@@ -284,6 +295,23 @@ body {
     margin: 0 auto;
   }
 
+  .rc-caption {
+    color: #ddd;
+    display: block;
+    font-size: 11px;
+    line-height: 1;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 3px;
+    margin-bottom: -7px;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 12px;
+      margin-top: 5px;
+      margin-bottom: -17px;
+    }
+  }
+
   .rc-content {
     background-image: linear-gradient(180deg, #FFFFFF 0%, #F4F4F4 100%);
     padding-bottom: 30px;
@@ -350,10 +378,31 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 
     @media (min-width: $screen-sm-min) {
       margin-bottom: 60px;
+    }
+
+    // Vertical images are more narrow.
+    &.v {
+      max-width: 600px;
+    }
+  }
+  
+  .rc-caption {
+    color: #ddd;
+    display: block;
+    font-size: 11px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 24px;
+    margin-top: -35px;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 12px;
+      margin-bottom: 43px;
+      margin-top: -55px;
     }
   }
 }
