@@ -79,7 +79,9 @@ body {
       
       // Use this crazy inverse hamburger menu because doing opacity changes
       // creates a stacking context, which puts the button on top of the menu.
-      background-image: url(/img/Hamburger-Inverse.svg);
+      //background-image: url(/img/Hamburger-Inverse.svg);
+      // Embed SVG to reduce flicker of solid background overlaid by inverse image.
+      background-image: url('data:image/svg+xml;utf8,<svg width="25px" height="13px" viewBox="0 0 25 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-1185.000000, -45.000000)" fill="#FFFFFF"><path d="M1185,43 L1185,45 L1210,45 L1210,43 L1185,43 Z M1185,48 L1185,50 L1210,50 L1210,48 L1185,48 Z M1185,53 L1185,55 L1210,55 L1210,53 L1185,53 Z M1185,58 L1185,60 L1210,60 L1210,58 L1185,58 Z M1185,43 L1185,60 L1210,60 L1210,43 L1185,43 Z"></path></g></g></svg>');
       background-position: 0 2px;
       background-repeat: no-repeat;
       background-color: #B2B2B2;
@@ -140,13 +142,22 @@ body {
         line-height: 1;
         margin-top: 7px;
         
+        h3 {
+          font-size: inherit;
+          line-height: 1;
+          margin: 0;
+          margin-bottom: 10px;
+          color: #222;
+        }
+      
+        ul {
+          margin-bottom: 0;
+          padding-bottom: 7px;
+        }
+
         li {
           margin-bottom: 16px;
           line-height: 20px;
-        }
-        
-        h3 {
-          font-size: inherit;
         }
       }
     }
@@ -238,32 +249,30 @@ body {
     
     .rc-menu-content {
       font-size: $font-size;
-      line-height: 1;
       padding: 0 20px;
-      margin-top: 106px - 13px;
+      margin-top: 110px - 13px;
+      line-height: 17px;
       
       h3 {
         font-size: inherit;
         margin: 0;
-        margin-bottom: 10px;
+        color: #222;
+        padding-bottom: 1em;
+      }
+      
+      ul {
+        margin: 0;
+        padding-bottom: 1em;
       }
       
       li {
-        line-height: 16px;
-        margin-bottom: 10px;
+        padding-bottom: 10px;
       }
 
       // Extra space for fingers.
       @media (max-width: $screen-sm-max) {
-        margin-top: 106px - 15px;
-      
-        ul {
-          padding-bottom: 7px;
-        }
-        
-        li {
-          line-height: 20px;
-        }
+        margin-top: 110px - 15px;
+        line-height: 21px;
       }
     }
   }
@@ -317,6 +326,10 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
+    
+    &.v {
+      max-width: 700px;
+    }
   }
 
   .rc-caption {
@@ -435,6 +448,25 @@ body {
     }
   }
 }
+
+
+// Back to Top
+// ============================================================================
+
+.rc-backtotop {
+  
+  a {
+    display: block;
+    width: 14px;
+    height: 17px;
+    background-image: url(/img/Up-Arrow.svg);
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+  }
+}
+
 
 // Footer
 // ============================================================================
