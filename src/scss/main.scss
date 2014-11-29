@@ -369,6 +369,10 @@ body {
     &.rc-copy-center {
       text-align: center;
     }
+    
+    a {
+      color: #777;
+    }
   }
 
   .rc-intro {
@@ -413,6 +417,16 @@ body {
   @media (min-width: $screen-sm-min) {
     margin-top: 60px;
   }
+
+  @media (min-width: $screen-md-min) {
+    @include container-fixed($grid-gutter-width);
+    width: $container-md;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    @include container-fixed($grid-gutter-width);    
+    width: $container-lg;
+  }
     
   img {
     max-width: 800px;
@@ -436,6 +450,7 @@ body {
     color: #ddd;
     display: block;
     font-size: 11px;
+    font-style: italic;
     line-height: 1;
     text-align: center;
     margin-bottom: 24px;
@@ -445,6 +460,10 @@ body {
       font-size: 12px;
       margin-bottom: 43px;
       margin-top: -55px;
+    }
+    
+    a {
+      color: #ccc;
     }
   }
 }
