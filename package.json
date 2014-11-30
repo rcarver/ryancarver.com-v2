@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "node-sass": "^1.2.3"
+    "node-sass": "^1.2.3",
+    "uglify-js": "^2.4.15"
   }
 }
