@@ -1,7 +1,9 @@
-SASS=node_modules/node-sass/bin/node-sass
+NODEPATH=/usr/local/bin
+
+SASS=PATH=$(NODEPATH) node_modules/node-sass/bin/node-sass
 SASSFLAGS=--output-style compressed
 
-UGLIFY=node_modules/uglify-js/bin/uglifyjs
+UGLIFY=PATH=$(NODEPATH) node_modules/uglify-js/bin/uglifyjs
 UGLIFYFLAGS=
 
 main.css=build/css/main.css
@@ -36,3 +38,7 @@ build:
 
 clean:
 	rm -rf build
+
+watch:
+	watchman watch $(shell pwd)
+	watchman -- trigger $(shell pwd) remake 'src/**/*.js' 'src/**/*.scss' -- make all
