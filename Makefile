@@ -1,3 +1,14 @@
+# Path to host the pages at.
+BASEURL=/archives/v2
+
+# Describe the src->build->dist workflow.
+DISTDIR=dist$(BASEURL)
+BUILDDIR=build
+SRCDIR=src
+
+# Tools
+# -----------------------------------------------------------------------------
+
 NODEPATH=/usr/local/bin
 
 KITIFY=PATH=$(NODEPATH) tools/kitify
@@ -11,69 +22,105 @@ SASSFLAGS=--output-style compressed
 UGLIFY=PATH=$(NODEPATH) node_modules/uglify-js/bin/uglifyjs
 UGLIFYFLAGS=
 
-main.css=build/css/main.css
-main.js=build/js/main.js
+# Find output files
+# -----------------------------------------------------------------------------
+
+css_out=$(DISTDIR)/css/main.css
+
+js_out=$(DISTDIR)/js/main.js
 
 img_in=$(wildcard img/**/**/*.* img/**/*.* img/*.*)
-img_out=$(patsubst img/%,build/img/%,$(img_in))
+img_out=$(patsubst img/%,$(DISTDIR)/img/%,$(img_in))
 
 bootstrap_in=$(wildcard vendor/bootstrap/css/*.min.css)
-bootstrap_out=$(patsubst vendor/bootstrap/css/%,build/bootstrap/css/%,$(bootstrap_in))
+bootstrap_out=$(patsubst vendor/bootstrap/css/%,$(DISTDIR)/bootstrap/css/%,$(bootstrap_in))
 
-pages_in=$(filter-out src/pages/_%,$(wildcard src/pages/*.kit))
-pages_out=$(patsubst src/pages/%.kit,build/%.html,$(pages_in))
+pages_in=$(filter-out $(SRCDIR)/pages/_%,$(wildcard $(SRCDIR)/pages/*.kit))
+pages_out=$(patsubst $(SRCDIR)/pages/%.kit,$(DISTDIR)/%.html,$(pages_in))
 
-all: build $(main.css) $(main.js) $(img_out) $(bootstrap_out) $(pages_out)
 
-build/img/%: img/%
+# Public API
+# =============================================================================
+
+dev: build_dev dist
+prod: clean build_prod dist 
+
+dist: $(css_out) $(js_out) $(img_out) $(bootstrap_out) $(pages_out)
+
+clean:
+	rm -rf build dist
+
+.PHONY: dev prod dist build_dev build_prod clean
+
+
+# Distribute. Package and optimize files for deployment.
+# =============================================================================
+
+$(DISTDIR)/img/%: img/%
 	@mkdir -p $(dir $@)
 	cp $? $@
 
-build/bootstrap/%: vendor/bootstrap/%
+$(DISTDIR)/bootstrap/%: vendor/bootstrap/%
 	@mkdir -p $(dir $@)
 	cp $? $@
 
-build/css/%.css: src/scss/%.scss
+$(DISTDIR)/css/%.css: $(BUILDDIR)/scss/%.scss
 	@mkdir -p $(dir $@)
 	$(SASS) $(SASSFLAGS) $^ $@
 
-build/js/%.js: src/js/%.js
+$(DISTDIR)/js/%.js: $(BUILDDIR)/js/%.js
 	@mkdir -p $(dir $@)
 	$(UGLIFY) $(UGLIFYFLAGS) $^ > $@
 
-build/%.html: src/pages/%.kit
+$(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit
+	@mkdir -p $(dir $@)
 	$(KITIFY) $^ > $@
 
-build:
-	@mkdir -p build
 
-clean:
-	rm -rf build
+# Build. Copy src files and perform modifications based on the environment.
+# =============================================================================
 
-# Development
+src_in=$(shell find $(SRCDIR) -type f)
+
+build_dev: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%)
+	echo '<!-- $$basedir=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
+
+build_prod: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%)
+	echo '<!-- $$basedir=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
+	echo '' > $(BUILDDIR)/pages/_livereload.kit
+
+$(BUILDDIR)/%: $(SRCDIR)/%
+	@mkdir -p $(dir $@)
+	cp $^ $@
+
+
+# Development. Tools to help you make changes.
+# =============================================================================
 
 watch:
 	watchman watch $(shell pwd)
-	watchman -- trigger $(shell pwd) remake 'src/*.kit' 'src/*.scss' 'src/*.js' -- make all
-	watchman -- trigger $(shell pwd) livereload 'build/*.html' 'build/*.css' 'build/*.js' -- $(LIVERELOAD_UPDATE)
+	watchman -- trigger $(shell pwd) remake 'src/*.kit' 'src/*.scss' 'src/*.js' -- make dev
+	watchman -- trigger $(shell pwd) livereload 'dist/*.html' 'dist/*.css' 'dist/*.js' -- $(LIVERELOAD_UPDATE)
+
+watch_stop:
+	watch_stop shutdown-server
 
 webserver:
-	cd build && python -m SimpleHTTPServer 4000
+	cd dist && python -m SimpleHTTPServer 4000
 
 livereload:
 	@$(LIVERELOAD)
 
-# Run `make -j` to run all dev tasks in parallel.
-dev: watch webserver livereload
+work: 
+	$(MAKE) -j watch webserver livereload
 
-# Deployment
 
-BASEURL="/archives/v2"
-DEPLOY_DRY_RUN = $NOSYNC ? "--dry-run" : nil
+# Deployment. Push the production files live.
+# =============================================================================
 
 DRYRUN?=--dry-run
 
-deploy:
-	s3cmd --config=.s3cfg sync _site/ $(DRYRUN) --delete-removed s3://www.ryancarver.com$(BASEURL)/
+deploy: prod
+	s3cmd --config=.s3cfg sync $(DISTDIR)/ $(DRYRUN) --delete-removed s3://www.ryancarver.com$(BASEURL)/
 
 
