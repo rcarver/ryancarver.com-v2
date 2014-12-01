@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# https://github.com/mklabs/tiny-lr
+
+files=$(echo $@ | tr ' ' ,)
+
+echo Livereload $@
+curl -s "http://localhost:35729/changed?files=$files"
+
+echo 
