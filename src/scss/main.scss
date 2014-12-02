@@ -1,4 +1,5 @@
 @import "bs";
+@import "variables";
 
 /*
 Pixels	Ems	Ems @ 16	% of 13
@@ -79,7 +80,7 @@ body {
       
       // Use this crazy inverse hamburger menu because doing opacity changes
       // creates a stacking context, which puts the button on top of the menu.
-      //background-image: url(/img/Hamburger-Inverse.svg);
+      //background-image: url($baseurl/img/Hamburger-Inverse.svg);
       // Embed SVG to reduce flicker of solid background overlaid by inverse image.
       background-image: url('data:image/svg+xml;utf8,<svg width="25px" height="13px" viewBox="0 0 25 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-1185.000000, -45.000000)" fill="#FFFFFF"><path d="M1185,43 L1185,45 L1210,45 L1210,43 L1185,43 Z M1185,48 L1185,50 L1210,50 L1210,48 L1185,48 Z M1185,53 L1185,55 L1210,55 L1210,53 L1185,53 Z M1185,58 L1185,60 L1210,60 L1210,58 L1185,58 Z M1185,43 L1185,60 L1210,60 L1210,43 L1185,43 Z"></path></g></g></svg>');
       background-position: 0 2px;
@@ -230,7 +231,7 @@ body {
       $height: 14px;
       $width: 14px;
     
-      background-image: url(/img/Hamburger-X.png);
+      background-image: url($baseurl/img/Hamburger-X.png);
       background-repeat: no-repeat;
       display: block;
       position: absolute;
