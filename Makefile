@@ -58,7 +58,11 @@ dist: $(css_out) $(js_out) $(img_out) $(bootstrap_out) $(pages_out)
 clean:
 	rm -rf build dist
 
-.PHONY: dev prod dist build_dev build_prod clean
+deps:
+	npm i
+	brew install watchman
+
+.PHONY: dev prod dist build_dev build_prod clean deps
 
 
 # Distribute. Package and optimize files for deployment.
