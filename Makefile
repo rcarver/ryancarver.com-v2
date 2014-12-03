@@ -1,3 +1,6 @@
+# BUILDENV (dev|prod) determines what kind of build to perform.
+BUILDENV?=dev
+
 # Path to host the pages at.
 BASEURL=/archives/v2
 
@@ -42,8 +45,13 @@ pages_out=$(patsubst $(SRCDIR)/pages/%.kit,$(DISTDIR)/%.html,$(pages_in))
 # Public API
 # =============================================================================
 
-dev: build_dev dist
-prod: clean build_prod dist 
+.DEFAULT_GOAL:=$(BUILDENV)
+
+dev:
+	BUILDENV=dev $(MAKE) build dist
+
+prod: 
+	BUILDENV=prod $(MAKE) clean build dist
 
 dist: $(css_out) $(js_out) $(img_out) $(bootstrap_out) $(pages_out)
 
@@ -82,14 +90,15 @@ $(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit
 
 src_in=$(shell find $(SRCDIR) -type f)
 
-build_dev: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%)
-	echo '<!-- $$baseurl=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
-	echo '$$baseurl:"$(BASEURL)";' > $(BUILDDIR)/scss/_variables.scss
+build: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%) set_buildenv_variables
 
-build_prod: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%)
+set_buildenv_variables:
 	echo '<!-- $$baseurl=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
 	echo '$$baseurl:"$(BASEURL)";' > $(BUILDDIR)/scss/_variables.scss
+ifeq ($(BUILDENV),prod)
+	echo "PRODUCTION!!!"
 	echo '' > $(BUILDDIR)/pages/_livereload.kit
+endif
 
 $(BUILDDIR)/%: $(SRCDIR)/%
 	@mkdir -p $(dir $@)
