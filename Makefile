@@ -83,12 +83,12 @@ $(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit
 src_in=$(shell find $(SRCDIR) -type f)
 
 build_dev: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%)
-	echo '<!-- $$basedir=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
-	echo '$$basedir=$(BASEURL);' > $(BUILDDIR)/scss/_variables.scss
+	echo '<!-- $$baseurl=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
+	echo '$$baseurl:"$(BASEURL)";' > $(BUILDDIR)/scss/_variables.scss
 
 build_prod: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%)
-	echo '<!-- $$basedir=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
-	echo '$$basedir=$(BASEURL);' > $(BUILDDIR)/scss/_variables.scss
+	echo '<!-- $$baseurl=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
+	echo '$$baseurl:"$(BASEURL)";' > $(BUILDDIR)/scss/_variables.scss
 	echo '' > $(BUILDDIR)/pages/_livereload.kit
 
 $(BUILDDIR)/%: $(SRCDIR)/%
