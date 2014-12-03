@@ -4,6 +4,9 @@
 # BUILDENV (dev|prod) determines what kind of build to perform.
 BUILDENV?=dev
 
+# Don't actually write files to prodution.
+DRYRUN?=--dry-run
+
 # Path to host the pages at.
 BASEURL=/archives/v2
 
@@ -53,7 +56,8 @@ dev: clean build dist work
 prod: 
 	BUILDENV=prod $(MAKE) clean build dist
 
-dist: $(css_out) $(js_out) $(img_out) $(bootstrap_out) $(pages_out)
+deploy: prod
+	s3cmd --config=.s3cfg sync $(DISTDIR)/ $(DRYRUN) --delete-removed s3://www.ryancarver.com$(BASEURL)/
 
 clean:
 	rm -rf build dist
@@ -62,11 +66,15 @@ deps:
 	npm i
 	brew install watchman
 
-.PHONY: dev prod dist build clean deps
+.PHONY: dev prod build deploy clean deps
 
 
 # Distribute. Package and optimize files for deployment.
 # =============================================================================
+
+dist: $(css_out) $(js_out) $(img_out) $(bootstrap_out) $(pages_out)
+
+.PHONY: dist
 
 $(DISTDIR)/img/%: img/%
 	@mkdir -p $(dir $@)
@@ -127,14 +135,4 @@ livereload:
 
 work: 
 	$(MAKE) -j watch webserver livereload
-
-
-# Deployment. Push the production files live.
-# =============================================================================
-
-DRYRUN?=--dry-run
-
-deploy: prod
-	s3cmd --config=.s3cfg sync $(DISTDIR)/ $(DRYRUN) --delete-removed s3://www.ryancarver.com$(BASEURL)/
-
 
