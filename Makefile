@@ -1,3 +1,6 @@
+# Build Variables
+# -----------------------------------------------------------------------------
+
 # BUILDENV (dev|prod) determines what kind of build to perform.
 BUILDENV?=dev
 
@@ -45,10 +48,7 @@ pages_out=$(patsubst $(SRCDIR)/pages/%.kit,$(DISTDIR)/%.html,$(pages_in))
 # Public API
 # =============================================================================
 
-.DEFAULT_GOAL:=$(BUILDENV)
-
-dev:
-	BUILDENV=dev $(MAKE) build dist
+dev: clean build dist work
 
 prod: 
 	BUILDENV=prod $(MAKE) clean build dist
@@ -62,7 +62,7 @@ deps:
 	npm i
 	brew install watchman
 
-.PHONY: dev prod dist build_dev build_prod clean deps
+.PHONY: dev prod dist build clean deps
 
 
 # Distribute. Package and optimize files for deployment.
@@ -100,7 +100,6 @@ set_buildenv_variables:
 	echo '<!-- $$baseurl=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
 	echo '$$baseurl:"$(BASEURL)";' > $(BUILDDIR)/scss/_variables.scss
 ifeq ($(BUILDENV),prod)
-	echo "PRODUCTION!!!"
 	echo '' > $(BUILDDIR)/pages/_livereload.kit
 endif
 
