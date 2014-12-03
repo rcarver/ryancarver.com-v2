@@ -52,6 +52,7 @@ pages_out=$(patsubst $(SRCDIR)/pages/%.kit,$(DISTDIR)/%.html,$(pages_in))
 # =============================================================================
 
 dev: clean build dist work
+redev: build dist
 
 prod: 
 	BUILDENV=prod $(MAKE) clean build dist
@@ -121,7 +122,7 @@ $(BUILDDIR)/%: $(SRCDIR)/%
 
 watch:
 	watchman watch $(shell pwd)
-	watchman -- trigger $(shell pwd) remake 'src/*.kit' 'src/*.scss' 'src/*.js' -- make dev
+	watchman -- trigger $(shell pwd) remake 'src/*.kit' 'src/*.scss' 'src/*.js' -- make redev
 	watchman -- trigger $(shell pwd) livereload 'dist/*.html' 'dist/*.css' 'dist/*.js' -- $(LIVERELOAD_UPDATE)
 
 watch_stop:
