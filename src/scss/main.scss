@@ -520,7 +520,7 @@ body {
     display: block;
     width: 14px;
     height: 17px;
-    background-image: url(/img/Up-Arrow.svg);
+    background-image: url("#{$baseurl}/img/Up-Arrow.svg");
     background-repeat: no-repeat;
     margin: 0 auto;
     margin-bottom: 10px;
