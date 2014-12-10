@@ -10,8 +10,9 @@ DRYRUN?=--dry-run
 # Path to host the pages at.
 BASEURL=/archives/v2
 
-# Describe the src->build->dist workflow.
-DISTDIR=dist/$(BUILDENV)$(BASEURL)
+# Describe the src->build->dist->serve workflow.
+SERVEDIR=dist/$(BUILDENV)
+DISTDIR=$(SERVEDIR)$(BASEURL)
 BUILDDIR=build/$(BUILDENV)
 SRCDIR=src
 
@@ -57,8 +58,8 @@ redev: build dist
 prod: 
 	BUILDENV=prod $(MAKE) clean build dist
 
-deploy: prod
-	s3cmd --config=.s3cfg sync $(DISTDIR)/ $(DRYRUN) --delete-removed s3://www.ryancarver.com$(BASEURL)/
+deploy: 
+	BUILDENV=prod $(MAKE) prod upload
 
 clean:
 	rm -rf $(BUILDDIR) $(DISTDIR)
@@ -67,7 +68,7 @@ deps:
 	npm i
 	brew install watchman
 
-.PHONY: dev prod build deploy clean deps
+.PHONY: dev prod build deploy clean deps upload
 
 
 # Distribute. Package and optimize files for deployment.
@@ -122,14 +123,14 @@ $(BUILDDIR)/%: $(SRCDIR)/%
 
 watch:
 	watchman watch $(shell pwd)
-	watchman -- trigger $(shell pwd) remake 'src/*.kit' 'src/*.scss' 'src/*.js' -- make redev
-	watchman -- trigger $(shell pwd) livereload 'dist/*.html' 'dist/*.css' 'dist/*.js' -- $(LIVERELOAD_UPDATE)
+	watchman -- trigger $(shell pwd) remake '$(SRCDIR)/*.kit' '$(SRCDIR)/*.scss' '$(SRCDIR)/*.js' -- make redev
+	watchman -- trigger $(shell pwd) livereload '$(DISTDIR)/*.html' '$(DISTDIR)/*.css' '$(DISTDIR)/*.js' -- $(LIVERELOAD_UPDATE)
 
 watch_stop:
 	watch_stop shutdown-server
 
 webserver:
-	cd $(DISTDIR) && python -m SimpleHTTPServer 4000
+	cd $(SERVEDIR) && python -m SimpleHTTPServer 4000
 
 livereload:
 	@$(LIVERELOAD)
@@ -137,3 +138,9 @@ livereload:
 work: 
 	$(MAKE) -j watch webserver livereload
 
+
+# Deployment. Show the world.
+# =============================================================================
+
+upload:
+	s3cmd --config=.s3cfg sync $(DISTDIR)/ $(DRYRUN) --delete-removed s3://www.ryancarver.com$(BASEURL)/
