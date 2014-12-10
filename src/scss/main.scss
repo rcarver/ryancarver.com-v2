@@ -37,7 +37,6 @@ body {
   }
 }
 
-
 // Header
 // ============================================================================
 
@@ -323,8 +322,9 @@ body {
 .rc-index-thumbs {
   $font-size: 12px;
 
+
+  @include container-fixed($grid-gutter-width);
   max-width: 700px;
-  margin: 0 auto;
   
   a {
     @include link-standard;
@@ -454,6 +454,8 @@ body {
 
 
 .rc-gallery-container {
+  @include container-fixed($grid-gutter-width);
+  @include xs-flush-grid-container;
   margin-top: 40px;
 
   @media (min-width: $screen-sm-min) {
