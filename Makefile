@@ -11,8 +11,8 @@ DRYRUN?=--dry-run
 BASEURL=/archives/v2
 
 # Describe the src->build->dist workflow.
-DISTDIR=dist$(BASEURL)
-BUILDDIR=build
+DISTDIR=dist/$(BUILDENV)$(BASEURL)
+BUILDDIR=build/$(BUILDENV)
 SRCDIR=src
 
 # Tools
@@ -61,7 +61,7 @@ deploy: prod
 	s3cmd --config=.s3cfg sync $(DISTDIR)/ $(DRYRUN) --delete-removed s3://www.ryancarver.com$(BASEURL)/
 
 clean:
-	rm -rf build dist
+	rm -rf $(BUILDDIR) $(DISTDIR)
 
 deps:
 	npm i
@@ -129,7 +129,7 @@ watch_stop:
 	watch_stop shutdown-server
 
 webserver:
-	cd dist && python -m SimpleHTTPServer 4000
+	cd $(DISTDIR) && python -m SimpleHTTPServer 4000
 
 livereload:
 	@$(LIVERELOAD)
