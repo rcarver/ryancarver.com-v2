@@ -4,7 +4,7 @@
   text-decoration: none;
   transition: color 0.2s ease;
 
-  &:hover {
+  &:hover, &:active {
     color: #7F7F7F;
   }
 }

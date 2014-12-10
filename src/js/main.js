@@ -1,3 +1,8 @@
+// Enable :active state in mobile safari.
+// http://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+document.addEventListener("touchstart", function(){}, true);
+
+// Hamburger menu interaction model.
 (function() {
   var TRANSITION_DURATION = 400;
 
@@ -52,5 +57,4 @@
       show();
     }
   };
-  
 })();
