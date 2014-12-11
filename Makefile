@@ -36,6 +36,8 @@ UGLIFYFLAGS=
 # -----------------------------------------------------------------------------
 
 css_out=$(DISTDIR)/css/main.css
+css_inS=$(wildcard img/**/**/*.* img/**/*.* img/*.*)
+
 
 js_out=$(DISTDIR)/js/main.js
 
@@ -80,23 +82,24 @@ dist: $(css_out) $(js_out) $(img_out) $(bootstrap_out) $(pages_out)
 
 $(DISTDIR)/img/%: img/%
 	@mkdir -p $(dir $@)
-	cp $? $@
+	cp $< $@
 
 $(DISTDIR)/bootstrap/%: vendor/bootstrap/%
 	@mkdir -p $(dir $@)
-	cp $? $@
+	cp $< $@
 
-$(DISTDIR)/css/%.css: $(BUILDDIR)/scss/%.scss
+$(DISTDIR)/css/%.css: $(BUILDDIR)/scss/%.scss $(wildcard $(BUILDDIR)/scss/_*.scss)
 	@mkdir -p $(dir $@)
-	$(SASS) $(SASSFLAGS) $^ $@
+	$(SASS) $(SASSFLAGS) $< $@
 
 $(DISTDIR)/js/%.js: $(BUILDDIR)/js/%.js
 	@mkdir -p $(dir $@)
-	$(UGLIFY) $(UGLIFYFLAGS) $^ > $@
+	$(UGLIFY) $(UGLIFYFLAGS) $< > $@
 
-$(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit
+$(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit $(wildcard $(BUILDDIR)/pages/_*.kit)
 	@mkdir -p $(dir $@)
-	$(KITIFY) $^ > $@
+	$(KITIFY) $< > $@
+
 
 
 # Build. Copy src files and perform modifications based on the environment.
@@ -117,6 +120,7 @@ $(BUILDDIR)/%: $(SRCDIR)/%
 	@mkdir -p $(dir $@)
 	cp $^ $@
 
+$(BUILDDIR)/css/%.scss: $(BUILDDIR)/scss/%.scss
 
 # Development. Tools to help you make changes.
 # =============================================================================
@@ -127,7 +131,7 @@ watch:
 	watchman -- trigger $(shell pwd) livereload '$(DISTDIR)/*.html' '$(DISTDIR)/*.css' '$(DISTDIR)/*.js' -- $(LIVERELOAD_UPDATE)
 
 watch_stop:
-	watch_stop shutdown-server
+	watchman shutdown-server
 
 webserver:
 	cd $(SERVEDIR) && python -m SimpleHTTPServer 4000
