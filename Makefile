@@ -15,6 +15,7 @@ SERVEDIR=dist/$(BUILDENV)
 DISTDIR=$(SERVEDIR)$(BASEURL)
 BUILDDIR=build/$(BUILDENV)
 SRCDIR=src
+IMGDIR=img
 
 # Tools
 # -----------------------------------------------------------------------------
@@ -32,17 +33,21 @@ SASSFLAGS=--output-style compressed
 UGLIFY=PATH=$(NODEPATH) node_modules/uglify-js/bin/uglifyjs
 UGLIFYFLAGS=
 
+IMAGEOPTIM=node_modules/imageoptim-cli/bin/imageOptim
+IMAGEOPTIMFLAGS=--image-alpha --quit
+
+
 # Find output files
 # -----------------------------------------------------------------------------
 
 css_out=$(DISTDIR)/css/main.css
-css_inS=$(wildcard img/**/**/*.* img/**/*.* img/*.*)
+css_inS=$(wildcard $(IMGDIR)/**/**/*.* $(IMGDIR)/**/*.* $(IMGDIR)/*.*)
 
 
 js_out=$(DISTDIR)/js/main.js
 
-img_in=$(wildcard img/**/**/*.* img/**/*.* img/*.*)
-img_out=$(patsubst img/%,$(DISTDIR)/img/%,$(img_in))
+img_in=$(wildcard $(IMGDIR)/**/**/*.* $(IMGDIR)/**/*.* $(IMGDIR)/*.*)
+img_out=$(patsubst $(IMGDIR)/%,$(DISTDIR)/img/%,$(img_in))
 
 bootstrap_in=$(wildcard vendor/bootstrap/css/*.min.css)
 bootstrap_out=$(patsubst vendor/bootstrap/css/%,$(DISTDIR)/bootstrap/css/%,$(bootstrap_in))
@@ -80,7 +85,7 @@ dist: $(css_out) $(js_out) $(img_out) $(bootstrap_out) $(pages_out)
 
 .PHONY: dist
 
-$(DISTDIR)/img/%: img/%
+$(DISTDIR)/img/%: $(IMGDIR)/%
 	@mkdir -p $(dir $@)
 	cp $< $@
 
@@ -124,6 +129,9 @@ $(BUILDDIR)/css/%.scss: $(BUILDDIR)/scss/%.scss
 
 # Development. Tools to help you make changes.
 # =============================================================================
+
+opt:
+	$(IMAGEOPTIM) $(IMAGEOPTIMFLAGS) --directory $(IMGDIR)
 
 watch:
 	watchman watch $(shell pwd)
