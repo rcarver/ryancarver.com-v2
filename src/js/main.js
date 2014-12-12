@@ -4,8 +4,6 @@ document.addEventListener("touchstart", function(){}, true);
 
 // Hamburger menu interaction model.
 (function() {
-  var TRANSITION_DURATION = 400;
-
   var visible = true;
   var menuContainer = document.getElementById("rc-menu-container");
   var menuWindow = document.getElementById("rc-menu-window");

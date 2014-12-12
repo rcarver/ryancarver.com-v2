@@ -31,7 +31,7 @@ SASS=PATH=$(NODEPATH) node_modules/node-sass/bin/node-sass
 SASSFLAGS=--output-style compressed
 
 UGLIFY=PATH=$(NODEPATH) node_modules/uglify-js/bin/uglifyjs
-UGLIFYFLAGS=
+UGLIFYFLAGS=--compress --mangle
 
 IMAGEOPTIM=node_modules/imageoptim-cli/bin/imageOptim
 IMAGEOPTIMFLAGS=--image-alpha --quit
@@ -40,11 +40,11 @@ IMAGEOPTIMFLAGS=--image-alpha --quit
 # Find output files
 # -----------------------------------------------------------------------------
 
-css_out=$(DISTDIR)/css/main.css
-css_inS=$(wildcard $(IMGDIR)/**/**/*.* $(IMGDIR)/**/*.* $(IMGDIR)/*.*)
+main_css=$(DISTDIR)/css/main.css
+css_libs=vendor/bootstrap/css/bootstrap.min.css
 
-
-js_out=$(DISTDIR)/js/main.js
+main_js=$(DISTDIR)/js/main.js
+js_libs=vendor/jquery-1.11.1.min.js vendor/jquery.lazyload.js
 
 img_in=$(wildcard $(IMGDIR)/**/**/*.* $(IMGDIR)/**/*.* $(IMGDIR)/*.*)
 img_out=$(patsubst $(IMGDIR)/%,$(DISTDIR)/img/%,$(img_in))
@@ -81,7 +81,7 @@ deps:
 # Distribute. Package and optimize files for deployment.
 # =============================================================================
 
-dist: $(css_out) $(js_out) $(img_out) $(bootstrap_out) $(pages_out)
+dist: $(main_css) $(main_js) $(img_out) $(pages_out)
 
 .PHONY: dist
 
@@ -89,17 +89,15 @@ $(DISTDIR)/img/%: $(IMGDIR)/%
 	@mkdir -p $(dir $@)
 	cp $< $@
 
-$(DISTDIR)/bootstrap/%: vendor/bootstrap/%
+$(DISTDIR)/css/%.css: $(BUILDDIR)/scss/%.scss $(wildcard $(BUILDDIR)/scss/_*.scss) $(css_libs)
 	@mkdir -p $(dir $@)
-	cp $< $@
+	$(SASS) $(SASSFLAGS) $< $@.tmp
+	cat $(css_libs) $@.tmp > $@
+	@rm $@.tmp
 
-$(DISTDIR)/css/%.css: $(BUILDDIR)/scss/%.scss $(wildcard $(BUILDDIR)/scss/_*.scss)
+$(DISTDIR)/js/%.js: $(BUILDDIR)/js/%.js $(js_libs)
 	@mkdir -p $(dir $@)
-	$(SASS) $(SASSFLAGS) $< $@
-
-$(DISTDIR)/js/%.js: $(BUILDDIR)/js/%.js
-	@mkdir -p $(dir $@)
-	$(UGLIFY) $(UGLIFYFLAGS) $< > $@
+	$(UGLIFY) $(UGLIFYFLAGS) -- $(js_libs) $< > $@
 
 $(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit $(wildcard $(BUILDDIR)/pages/_*.kit)
 	@mkdir -p $(dir $@)
