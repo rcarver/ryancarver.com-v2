@@ -376,7 +376,7 @@ body {
   }
 
   .rc-caption {
-    color: #ddd;
+    color: #ccc;
     display: block;
     font-size: 11px;
     line-height: 1;
@@ -492,7 +492,7 @@ body {
   }
   
   .rc-caption {
-    color: #ddd;
+    color: #bbb;
     display: block;
     font-size: 11px;
     font-style: italic;
@@ -503,12 +503,12 @@ body {
 
     @media (min-width: $screen-sm-min) {
       font-size: 12px;
-      margin-bottom: 43px;
-      margin-top: -55px;
+      margin-bottom: 38px;
+      margin-top: -50px;
     }
     
     a {
-      color: #ccc;
+      color: #aaa;
     }
   }
 }
