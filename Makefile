@@ -16,6 +16,7 @@ DISTDIR=$(SERVEDIR)$(BASEURL)
 BUILDDIR=build/$(BUILDENV)
 SRCDIR=src
 IMGDIR=img
+FONTDIR=src/fonts
 
 # Tools
 # -----------------------------------------------------------------------------
@@ -49,6 +50,9 @@ js_libs=vendor/jquery-1.11.1.min.js vendor/jquery.lazyload.js
 img_in=$(wildcard $(IMGDIR)/**/**/*.* $(IMGDIR)/**/*.* $(IMGDIR)/*.*)
 img_out=$(patsubst $(IMGDIR)/%,$(DISTDIR)/img/%,$(img_in))
 
+fonts_in=$(wildcard $(FONTDIR)/**/*.*)
+fonts_out=$(patsubst $(FONTDIR)/%,$(DISTDIR)/fonts/%,$(fonts_in))
+
 bootstrap_in=$(wildcard vendor/bootstrap/css/*.min.css)
 bootstrap_out=$(patsubst vendor/bootstrap/css/%,$(DISTDIR)/bootstrap/css/%,$(bootstrap_in))
 
@@ -81,11 +85,15 @@ deps:
 # Distribute. Package and optimize files for deployment.
 # =============================================================================
 
-dist: $(main_css) $(main_js) $(img_out) $(pages_out)
+dist: $(main_css) $(main_js) $(img_out) $(fonts_out) $(pages_out)
 
 .PHONY: dist
 
 $(DISTDIR)/img/%: $(IMGDIR)/%
+	@mkdir -p $(dir $@)
+	cp $< $@
+
+$(DISTDIR)/fonts/%: $(FONTDIR)/%
 	@mkdir -p $(dir $@)
 	cp $< $@
 
