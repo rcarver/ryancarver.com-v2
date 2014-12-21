@@ -535,10 +535,19 @@ body {
   
   p {
     margin-bottom: 1em;
+    font-family: 'Hoefler Text A', 'Hoefler Text B'; 
+    font-weight: 400; 
   }
   
   .rc-sc {
-    text-transform: uppercase;
+    font-family: 'Hoefler Text SC A', 'Hoefler Text SC B'; 
+    font-weight: 400; 
+    text-transform: lowercase;
+    font-variant-caps: small-caps;
+    -moz-font-feature-settings: "smcp";
+    -ms-font-feature-settings: "smcp";
+    -webkit-font-feature-settings: "smcp";
+    font-feature-settings: "smcp";    
   }
 }
 
