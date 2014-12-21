@@ -13,7 +13,7 @@ Pixels	Ems	Ems @ 16	% of 13
 10.667	0.762	0.667	82.054
 */
 
-// Basics  
+// Basics
 // ============================================================================
 
 body {
@@ -24,7 +24,7 @@ body {
 .rc-container {
   margin: 0;
   padding: 0;
-  width: 100%; 
+  width: 100%;
 
   @media (min-width: $screen-md-min) {
     @include container-fixed($grid-gutter-width);
@@ -32,7 +32,7 @@ body {
   }
 
   @media (min-width: $screen-lg-min) {
-    @include container-fixed($grid-gutter-width);    
+    @include container-fixed($grid-gutter-width);
     width: $container-lg;
   }
 }
@@ -48,30 +48,30 @@ body {
 
     padding-top: $baseline-offset-top - $font-size - $font-baseline-offset;
     margin-bottom: $baseline-offset-bottom + $font-baseline-offset + $font-size;
-  
+
     h1 {
       font-size: $font-size;
       font-weight: 300;
       line-height: 1;
       margin: 0 0 0 $horizontal-inset;
       padding: 0;
-      
+
       a {
         @include link-standard;
       }
     }
-  
+
     .rc-menu-button {
       $height: 17px;
       $width: 25px;
-      
+
       float: right;
       display: block;
       height: $height;
       margin-right: $horizontal-inset;
       margin-top: $font-size - $height + $font-baseline-offset;
       width: $width;
-      
+
       // Use this crazy inverse hamburger menu because doing opacity changes
       // creates a stacking context, which puts the button on top of the menu.
       //background-image: url("#{$baseurl}/img/Hamburger-Inverse.svg");
@@ -81,7 +81,7 @@ body {
       background-repeat: no-repeat;
       background-color: #B2B2B2;
       transition: background-color 0.2s ease;
-      
+
       &:hover, &:active {
         background-color: #7F7F7F;
       }
@@ -111,23 +111,23 @@ body {
     }
   }
 }
-    
+
 // Menu on XS.
 @media (max-width: $screen-xs-max) {
 
-  .rc-menu-button { 
+  .rc-menu-button {
     display: none;
   }
 
   .rc-menu-container {
     $font-size: 16px;
-    
+
     .rc-menu-wrapper {
       padding: 20px - $font-size + $font-size / 2 20px 1px 20px;
       margin-bottom: $font-size / 2;
       box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.09);
       background-image: linear-gradient(0, #fff 0%, #F4F4F4 100%);
-      
+
       &.rc-menu-hidden {
         display: none;
       }
@@ -136,7 +136,7 @@ body {
         font-size: $font-size;
         line-height: 1;
         margin-top: 7px;
-        
+
         h3 {
           font-size: 13px;
           line-height: 1;
@@ -145,7 +145,7 @@ body {
           color: #222;
           text-transform: uppercase;
         }
-      
+
         ul {
           margin-bottom: 0;
           padding-bottom: 14px;
@@ -167,12 +167,12 @@ body {
     $font-size: 14px;
     $width: 160px;
     $grid-offset: 15px; // Compensate for grid padding that extends past the page
-  
+
     height: 100%;
     position: fixed;
     z-index: 1000;
     pointer-events: none; // Allow events through this element, even though it covers the document.
-    
+
     // Handy for debugging.
     // background-color: rgba(255, 0, 0, 0.5);
 
@@ -192,7 +192,7 @@ body {
       width: $container-lg - $grid-gutter-width;
       margin-left: -$container-lg / 2 + $grid-gutter-width / 2;
     }
-  
+
     .rc-menu-mask {
       height: 100%;
       overflow: hidden;
@@ -208,14 +208,14 @@ body {
       position: absolute;
       right: 0;
       width: $width;
-    
+
       transition: right 0.4s ease-in-out,
                   background-position 0.4s ease-in-out,
                   box-shadow 0.1s ease 0.2s;
       background-color: #fff;
       background-image: linear-gradient(270deg, #FFFFFF 0%, #F4F4F4 100%, #FFF 200%);
       box-shadow: -2px 0px 2px 0px rgba(0,0,0,0.09);
-    
+
       &.rc-menu-hidden {
         background-position: -160px;
         box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
@@ -223,10 +223,10 @@ body {
       }
     }
 
-    .rc-menu-button { 
+    .rc-menu-button {
       $height: 14px;
       $width: 14px;
-    
+
       background-image: url("#{$baseurl}/img/Hamburger-X.png");
       background-repeat: no-repeat;
       display: block;
@@ -241,15 +241,15 @@ body {
 
       &:hover, &:active {
         opacity: 0.7;
-      }   
-    }    
-    
+      }
+    }
+
     .rc-menu-content {
       font-size: $font-size;
       padding: 0 20px;
       margin-top: 110px - 11px;
       line-height: 17px;
-      
+
       h3 {
         font-size: inherit;
         margin: 0;
@@ -259,12 +259,12 @@ body {
         letter-spacing: 0.0em;
         padding-bottom: 1em;
       }
-      
+
       ul {
         margin: 0;
         padding-bottom: 1em;
       }
-      
+
       li {
         padding-bottom: 10px;
       }
@@ -282,12 +282,12 @@ body {
 // Featured Image
 // ============================================================================
 
-.rc-featured-image {  
+.rc-featured-image {
   margin-bottom: 2em;
 
   @media (min-width: $screen-sm-min) {
     margin-bottom: 60px;
-  }    
+  }
 
   a {
     @include link-standard;
@@ -298,7 +298,7 @@ body {
     display: block;
     text-align: center;
   }
-  
+
   .rc-feat {
     font-size: 14px;
     font-weight: 300;
@@ -307,9 +307,9 @@ body {
 
     @media (min-width: $screen-sm-min) {
       margin-top: 40px - 14px;
-    }  
+    }
   }
-  
+
   .rc-name {
     font-size: 16px;
     font-weight: 400;
@@ -318,7 +318,7 @@ body {
       font-size: 18px;
     }
   }
-}   
+}
 
 .rc-index-thumbs {
   $font-size: 12px;
@@ -326,18 +326,18 @@ body {
 
   @include container-fixed($grid-gutter-width);
   max-width: 700px;
-  
+
   a {
     @include link-standard;
   }
-  
+
   img {
     max-width: 250px;
     width: 100%;
     display: block;
     margin: 0 auto;
   }
-  
+
   .rc-title {
     line-height: 1.2;
     font-size: $font-size;
@@ -351,9 +351,9 @@ body {
       font-size: $font-size + 2;
       padding-top: 1.5em;
       padding-bottom: 3.5em;
-    }    
+    }
   }
-  
+
 }
 
 // Gallery
@@ -369,7 +369,7 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
-    
+
     &.v {
       max-width: 700px;
     }
@@ -398,7 +398,7 @@ body {
 
     @media (min-width: $screen-sm-min) {
       padding-bottom: 50px;
-    }    
+    }
   }
 
   .rc-intro,
@@ -407,12 +407,12 @@ body {
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-    
+
     // Looks better when the copy is very short.
     &.rc-copy-center {
       text-align: center;
     }
-    
+
     a {
       color: #777;
     }
@@ -432,26 +432,26 @@ body {
       display: block;
       text-align: center;
     }
-  
-    .rc-title {    
-      font-size: $font-size-big; 
-      font-weight: 400; 
+
+    .rc-title {
+      font-size: $font-size-big;
+      font-weight: 400;
       line-height: 20px;
     }
-  
-    .rc-subtitle {  
-      font-size: $font-size;  
-      font-weight: 300;     
+
+    .rc-subtitle {
+      font-size: $font-size;
+      font-weight: 300;
       line-height: 20px;
     }
   }
-  
+
   .rc-copy {
-    font-size: 14px; 
-    font-weight: 300;     
+    font-size: 14px;
+    font-weight: 300;
     line-height: 23px;
   }
-}   
+}
 
 
 .rc-gallery-container {
@@ -469,10 +469,10 @@ body {
   }
 
   @media (min-width: $screen-lg-min) {
-    @include container-fixed($grid-gutter-width);    
+    @include container-fixed($grid-gutter-width);
     width: $container-lg;
   }
-    
+
   img {
     max-width: 800px;
     width: 100%;
@@ -490,7 +490,7 @@ body {
       max-width: 600px;
     }
   }
-  
+
   .rc-caption {
     color: #bbb;
     display: block;
@@ -506,7 +506,7 @@ body {
       margin-bottom: 38px;
       margin-top: -50px;
     }
-    
+
     a {
       color: #aaa;
     }
@@ -523,7 +523,6 @@ body {
   .rc-firecracker-col-b {
     display: table-cell;
     vertical-align: middle;
-    
   }
 }
 
@@ -532,22 +531,22 @@ body {
   line-height: 1.5em;
   padding-top: 120px;
   padding: 0 30px 0 30px;
-  
+
   p {
     margin-bottom: 1em;
-    font-family: 'Hoefler Text A', 'Hoefler Text B'; 
-    font-weight: 400; 
+    font-family: 'Hoefler Text A', 'Hoefler Text B';
+    font-weight: 400;
   }
-  
+
   .rc-sc {
-    font-family: 'Hoefler Text SC A', 'Hoefler Text SC B'; 
-    font-weight: 400; 
+    font-family: 'Hoefler Text SC A', 'Hoefler Text SC B';
+    font-weight: 400;
     text-transform: lowercase;
     font-variant-caps: small-caps;
     -moz-font-feature-settings: "smcp";
     -ms-font-feature-settings: "smcp";
     -webkit-font-feature-settings: "smcp";
-    font-feature-settings: "smcp";    
+    font-feature-settings: "smcp";
   }
 }
 
@@ -555,7 +554,7 @@ body {
 // ============================================================================
 
 .rc-backtotop {
-  
+
   a {
     display: block;
     width: 14px;
@@ -570,7 +569,7 @@ body {
 
     &:hover, &:active {
       opacity: 0.7;
-    }   
+    }
   }
 }
 
@@ -590,7 +589,7 @@ footer {
     br {
       display: none;
     }
-  }  
+  }
 }
 
 
