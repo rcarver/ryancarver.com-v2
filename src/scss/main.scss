@@ -513,6 +513,34 @@ body {
   }
 }
 
+.rc-firecracker-row {
+  display: table;
+
+  .rc-firecracker-col-a {
+    display: table-cell;
+  }
+
+  .rc-firecracker-col-b {
+    display: table-cell;
+    vertical-align: middle;
+    
+  }
+}
+
+.rc-firecracker-copy {
+  font-size: 22px;
+  line-height: 1.5em;
+  padding-top: 120px;
+  padding: 0 30px 0 30px;
+  
+  p {
+    margin-bottom: 1em;
+  }
+  
+  .rc-sc {
+    text-transform: uppercase;
+  }
+}
 
 // Back to Top
 // ============================================================================
