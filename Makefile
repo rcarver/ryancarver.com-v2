@@ -104,26 +104,29 @@ $(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit $(wildcard $(BUILDDIR)/pages/_*.kit)
 	$(KITIFY) $< > $@
 
 
-
 # Build. Copy src files and perform modifications based on the environment.
 # =============================================================================
 
 src_in=$(shell find $(SRCDIR) -type f)
+build_configs=$(BUILDDIR)/pages/_variables.kit $(BUILDDIR)/pages/_livereload.kit $(BUILDDIR)/scss/_variables.scss 
 
-build: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%) set_buildenv_variables
-
-set_buildenv_variables:
-	echo '<!-- $$baseurl=$(BASEURL) -->' > $(BUILDDIR)/pages/_variables.kit
-	echo '$$baseurl:"$(BASEURL)";' > $(BUILDDIR)/scss/_variables.scss
-ifeq ($(BUILDENV),prod)
-	echo '' > $(BUILDDIR)/pages/_livereload.kit
-endif
+build: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%) $(build_configs)
 
 $(BUILDDIR)/%: $(SRCDIR)/%
 	@mkdir -p $(dir $@)
 	cp $^ $@
 
-$(BUILDDIR)/css/%.scss: $(BUILDDIR)/scss/%.scss
+$(BUILDDIR)/pages/_variables.kit:
+	echo '<!-- $$baseurl=$(BASEURL) -->' > $@
+
+$(BUILDDIR)/pages/_livereload.kit:
+ifeq ($(BUILDENV),prod)
+	echo '' > $@
+endif
+
+$(BUILDDIR)/scss/_variables.scss:
+	echo '$$baseurl:"$(BASEURL)";' > $@
+
 
 # Development. Tools to help you make changes.
 # =============================================================================
