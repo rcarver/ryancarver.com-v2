@@ -513,42 +513,100 @@ body {
   }
 }
 
-.rc-firecracker-row {
-  display: table;
+.rc-firecracker-gallery-container {
+  @include container-fixed($grid-gutter-width);
+  @include xs-flush-grid-container;
+  margin-top: 40px;
 
-  .rc-firecracker-col-a {
-    display: table-cell;
+  @media (min-width: $screen-sm-min) {
+    margin-top: 60px;
   }
 
-  .rc-firecracker-col-b {
-    display: table-cell;
-    vertical-align: middle;
+  @media (min-width: $screen-md-min) {
+    @include container-fixed(0);
+    width: $container-md;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    @include container-fixed(0);
+  }
+
+  // Basic styles.
+  .rc-firecracker-row {
+
+    .rc-firecracker-col-a {
+
+      img {
+        max-width: 800px;
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+
+    .rc-firecracker-col-b {
+      line-height: 1.5em;
+
+      p {
+        margin-bottom: 1em;
+        font-family: 'Hoefler Text A', 'Hoefler Text B';
+        font-weight: 400;
+
+        &.rc-hang {
+          text-indent: -.4em;
+        }
+      }
+
+      .rc-sc {
+        font-family: 'Hoefler Text SC A', 'Hoefler Text SC B';
+        font-weight: 400;
+        text-transform: lowercase;
+        font-variant-caps: small-caps;
+        -moz-font-feature-settings: "smcp";
+        -ms-font-feature-settings: "smcp";
+        -webkit-font-feature-settings: "smcp";
+        font-feature-settings: "smcp";
+      }
+    }
+  }
+
+  // XS Layout
+  @media (max-width: $screen-xs-max) {
+
+    .rc-firecracker-row {
+      font-size: 20px;
+      margin-bottom: 2em;
+
+      .rc-firecracker-col-b {
+        margin: 1em;
+      }
+    }
+  }
+
+  // All other layouts.
+  @media (min-width: $screen-sm-min) {
+
+    .rc-firecracker-row {
+      display: table;
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid #eee;
+      font-size: 28px;
+
+      .rc-firecracker-col-a {
+        display: table-cell;
+        width: 53%;
+      }
+
+      .rc-firecracker-col-b {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 40px;
+      }
+    }
   }
 }
 
-.rc-firecracker-copy {
-  font-size: 22px;
-  line-height: 1.5em;
-  padding-top: 120px;
-  padding: 0 30px 0 30px;
-
-  p {
-    margin-bottom: 1em;
-    font-family: 'Hoefler Text A', 'Hoefler Text B';
-    font-weight: 400;
-  }
-
-  .rc-sc {
-    font-family: 'Hoefler Text SC A', 'Hoefler Text SC B';
-    font-weight: 400;
-    text-transform: lowercase;
-    font-variant-caps: small-caps;
-    -moz-font-feature-settings: "smcp";
-    -ms-font-feature-settings: "smcp";
-    -webkit-font-feature-settings: "smcp";
-    font-feature-settings: "smcp";
-  }
-}
 
 // Back to Top
 // ============================================================================
