@@ -545,7 +545,8 @@ body {
     }
 
     .rc-firecracker-col-b {
-      line-height: 1.5em;
+      line-height: 1.36em;
+      letter-spacing: 0.02em;
 
       p {
         margin-bottom: 1em;
@@ -591,11 +592,11 @@ body {
       margin-bottom: 60px;
       padding-bottom: 60px;
       border-bottom: 1px solid #eee;
-      font-size: 28px;
+      font-size: 26px;
 
       .rc-firecracker-col-a {
         display: table-cell;
-        width: 53%;
+        width: 52%;
       }
 
       .rc-firecracker-col-b {
