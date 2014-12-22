@@ -514,8 +514,6 @@ body {
 }
 
 .rc-firecracker-gallery-container {
-  @include container-fixed($grid-gutter-width);
-  @include xs-flush-grid-container;
   margin-top: 40px;
 
   @media (min-width: $screen-sm-min) {
@@ -523,12 +521,13 @@ body {
   }
 
   @media (min-width: $screen-md-min) {
-    @include container-fixed(0);
+    @include container-fixed($grid-gutter-width);
     width: $container-md;
   }
 
   @media (min-width: $screen-lg-min) {
-    @include container-fixed(0);
+    @include container-fixed($grid-gutter-width);
+    width: $container-lg;
   }
 
   // Basic styles.
@@ -550,7 +549,7 @@ body {
 
       p {
         margin-bottom: 1em;
-        font-family: 'Hoefler Text A', 'Hoefler Text B';
+        font-family: 'Hoefler Text A', 'Hoefler Text B', serif;
         font-weight: 400;
 
         &.rc-hang {
@@ -559,7 +558,7 @@ body {
       }
 
       .rc-sc {
-        font-family: 'Hoefler Text SC A', 'Hoefler Text SC B';
+        font-family: 'Hoefler Text SC A', 'Hoefler Text SC B', serif;
         font-weight: 400;
         text-transform: lowercase;
         font-variant-caps: small-caps;
@@ -571,7 +570,7 @@ body {
     }
   }
 
-  // XS Layout
+  // XS style and layout
   @media (max-width: $screen-xs-max) {
 
     .rc-firecracker-row {
@@ -584,24 +583,48 @@ body {
     }
   }
 
-  // All other layouts.
+  // SM style and all other layouts.
   @media (min-width: $screen-sm-min) {
+    padding-right: $grid-gutter-width / 2;
+    padding-left: $grid-gutter-width / 2;
 
     .rc-firecracker-row {
+      margin-right: -$grid-gutter-width / 2;
+      margin-left: -$grid-gutter-width / 2;
       display: table;
-      margin-bottom: 60px;
-      padding-bottom: 60px;
       border-bottom: 1px solid #eee;
-      font-size: 26px;
+      font-size: 22px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      
+      &:nth-last-child(1)  {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
 
       .rc-firecracker-col-a {
+        padding-left: $grid-gutter-width / 2;
         display: table-cell;
         width: 52%;
       }
 
       .rc-firecracker-col-b {
+        padding-right: $grid-gutter-width / 2;
         display: table-cell;
         vertical-align: middle;
+        padding-left: 20px;
+      }
+    }
+  }
+  
+  // MD and all other styles
+  @media (min-width: $screen-md-min) {
+    .rc-firecracker-row {
+      font-size: 26px;
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+
+      .rc-firecracker-col-b {
         padding-left: 40px;
       }
     }
