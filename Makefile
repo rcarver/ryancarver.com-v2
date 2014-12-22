@@ -48,7 +48,17 @@ main_js=$(DISTDIR)/js/main.js
 js_libs=vendor/jquery-1.11.1.min.js vendor/jquery.lazyload.js
 
 img_in=$(wildcard $(IMGDIR)/**/**/*.* $(IMGDIR)/**/*.* $(IMGDIR)/*.*)
-img_out=$(patsubst $(IMGDIR)/%,$(DISTDIR)/img/%,$(img_in))
+
+img_gallery_in=$(filter img/gallery/%,$(img_in))
+img_assets_in=$(filter-out img/gallery/%,$(img_in))
+
+img_assets_out=$(patsubst $(IMGDIR)/%,$(DISTDIR)/img/%,$(img_assets_in))
+
+img_gallery_full_out=$(patsubst $(IMGDIR)/gallery/%,$(DISTDIR)/img/gallery/full/%,$(img_gallery_in))
+img_gallery_lg_out=$(patsubst $(IMGDIR)/gallery/%,$(DISTDIR)/img/gallery/lg/%,$(img_gallery_in))
+img_gallery_sm_out=$(patsubst $(IMGDIR)/gallery/%,$(DISTDIR)/img/gallery/sm/%,$(img_gallery_in))
+
+img_out=$(img_assets_out) $(img_gallery_full_out) $(img_gallery_lg_out) $(img_gallery_sm_out)
 
 fonts_in=$(wildcard $(FONTDIR)/**/*.*)
 fonts_out=$(patsubst $(FONTDIR)/%,$(DISTDIR)/fonts/%,$(fonts_in))
@@ -78,6 +88,7 @@ clean:
 deps:
 	npm i
 	brew install watchman
+	brew install imagemagick
 
 .PHONY: dev prod build deploy clean deps upload
 
@@ -88,6 +99,18 @@ deps:
 dist: $(main_css) $(main_js) $(img_out) $(fonts_out) $(pages_out)
 
 .PHONY: dist
+
+$(DISTDIR)/img/gallery/full/%: $(IMGDIR)/gallery/%
+	@mkdir -p $(dir $@)
+	cp $< $@
+
+$(DISTDIR)/img/gallery/lg/%: $(IMGDIR)/gallery/%
+	@mkdir -p $(dir $@)
+	convert $< -resize 800 $@
+
+$(DISTDIR)/img/gallery/sm/%: $(IMGDIR)/gallery/%
+	@mkdir -p $(dir $@)
+	convert $< -resize 480 $@
 
 $(DISTDIR)/img/%: $(IMGDIR)/%
 	@mkdir -p $(dir $@)
