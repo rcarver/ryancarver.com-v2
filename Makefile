@@ -35,7 +35,7 @@ UGLIFY=PATH=$(NODEPATH) node_modules/uglify-js/bin/uglifyjs
 UGLIFYFLAGS=--compress --mangle
 
 IMAGEOPTIM=node_modules/imageoptim-cli/bin/imageOptim
-IMAGEOPTIMFLAGS=--image-alpha --quit
+IMAGEOPTIMFLAGS=--image-alpha --jpeg-mini --quit
 
 
 # Find output files
