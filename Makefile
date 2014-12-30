@@ -15,8 +15,9 @@ SERVEDIR=dist/$(BUILDENV)
 DISTDIR=$(SERVEDIR)$(BASEURL)
 BUILDDIR=build/$(BUILDENV)
 SRCDIR=src
-IMGDIR=img
+IMGDIR=src/img
 FONTDIR=src/fonts
+PHOTODIR=photos
 
 # Tools
 # -----------------------------------------------------------------------------
@@ -48,17 +49,7 @@ main_js=$(DISTDIR)/js/main.js
 js_libs=vendor/jquery-1.11.1.min.js vendor/jquery.lazyload.js
 
 img_in=$(wildcard $(IMGDIR)/**/**/*.* $(IMGDIR)/**/*.* $(IMGDIR)/*.*)
-
-img_gallery_in=$(filter img/gallery/%,$(img_in))
-img_assets_in=$(filter-out img/gallery/%,$(img_in))
-
-img_assets_out=$(patsubst $(IMGDIR)/%,$(DISTDIR)/img/%,$(img_assets_in))
-
-img_gallery_full_out=$(patsubst $(IMGDIR)/gallery/%,$(DISTDIR)/img/gallery/full/%,$(img_gallery_in))
-img_gallery_lg_out=$(patsubst $(IMGDIR)/gallery/%,$(DISTDIR)/img/gallery/lg/%,$(img_gallery_in))
-img_gallery_sm_out=$(patsubst $(IMGDIR)/gallery/%,$(DISTDIR)/img/gallery/sm/%,$(img_gallery_in))
-
-img_out=$(img_assets_out) $(img_gallery_full_out) $(img_gallery_lg_out) $(img_gallery_sm_out)
+img_out=$(patsubst $(IMGDIR)/%,$(DISTDIR)/img/%,$(img_in))
 
 fonts_in=$(wildcard $(FONTDIR)/**/*.*)
 fonts_out=$(patsubst $(FONTDIR)/%,$(DISTDIR)/fonts/%,$(fonts_in))
@@ -69,11 +60,21 @@ bootstrap_out=$(patsubst vendor/bootstrap/css/%,$(DISTDIR)/bootstrap/css/%,$(boo
 pages_in=$(filter-out $(SRCDIR)/pages/_%,$(wildcard $(SRCDIR)/pages/*.kit))
 pages_out=$(patsubst $(SRCDIR)/pages/%.kit,$(DISTDIR)/%.html,$(pages_in))
 
+photos_full=$(wildcard $(PHOTODIR)/full/**/**/*.* $(PHOTODIR)/full/**/*.* $(PHOTODIR)/full/*.*)
+
+photos_lg=$(patsubst $(PHOTODIR)/full/%,$(PHOTODIR)/lg/%,$(photos_full))
+photos_sm=$(patsubst $(PHOTODIR)/full/%,$(PHOTODIR)/sm/%,$(photos_full))
+photos_to_convert=$(photos_lg) $(photos_sm)
+
+photos_all=$(photos_full) $(photos_lg) $(photos_sm)
+photos_out=$(patsubst $(PHOTODIR)/%,$(DISTDIR)/img/gallery/%,$(photos_all))
+
 
 # Public API
 # =============================================================================
 
-dev: clean build dist work
+default: clean dev
+dev: build dist work
 redev: build dist
 
 prod: 
@@ -84,6 +85,8 @@ deploy:
 
 clean:
 	rm -rf $(BUILDDIR) $(DISTDIR)
+
+clean_all: clean clean_photos
 
 deps:
 	npm i
@@ -96,21 +99,13 @@ deps:
 # Distribute. Package and optimize files for deployment.
 # =============================================================================
 
-dist: $(main_css) $(main_js) $(img_out) $(fonts_out) $(pages_out)
+dist: $(main_css) $(main_js) $(img_out) $(photos_out) $(fonts_out) $(pages_out) convert_photos
 
 .PHONY: dist
 
-$(DISTDIR)/img/gallery/full/%: $(IMGDIR)/gallery/%
+$(DISTDIR)/img/gallery/%: $(PHOTODIR)/%
 	@mkdir -p $(dir $@)
 	cp $< $@
-
-$(DISTDIR)/img/gallery/lg/%: $(IMGDIR)/gallery/%
-	@mkdir -p $(dir $@)
-	convert $< -resize 800 $@
-
-$(DISTDIR)/img/gallery/sm/%: $(IMGDIR)/gallery/%
-	@mkdir -p $(dir $@)
-	convert $< -resize 480 $@
 
 $(DISTDIR)/img/%: $(IMGDIR)/%
 	@mkdir -p $(dir $@)
@@ -133,6 +128,27 @@ $(DISTDIR)/js/%.js: $(BUILDDIR)/js/%.js $(js_libs)
 $(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit $(wildcard $(BUILDDIR)/pages/_*.kit)
 	@mkdir -p $(dir $@)
 	$(KITIFY) $< > $@
+
+
+# Build Gallery images.
+# =============================================================================
+
+convert_photos: $(photos_to_convert)
+
+clean_photos: 
+	rm -rf $(PHOTODIR)/sm
+	rm -rf $(PHOTODIR)/lg
+
+
+.PHONY: convert_photos clean_photos
+
+$(PHOTODIR)/lg/%: $(PHOTODIR)/full/%
+	@mkdir -p $(dir $@)
+	convert $< -resize 800 $@
+
+$(PHOTODIR)/sm/%: $(PHOTODIR)/full/%
+	@mkdir -p $(dir $@)
+	convert $< -resize 480 $@
 
 
 # Build. Copy src files and perform modifications based on the environment.
