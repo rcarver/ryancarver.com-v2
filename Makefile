@@ -46,7 +46,7 @@ main_css=$(DISTDIR)/css/main.css
 css_libs=vendor/bootstrap/css/bootstrap.min.css
 
 main_js=$(DISTDIR)/js/main.js
-js_libs=vendor/jquery-1.11.1.min.js vendor/jquery.lazyload.js
+js_libs=vendor/jquery-1.11.1.min.js vendor/jquery.lazyload.js vendor/picturefill.min.js
 
 img_in=$(wildcard $(IMGDIR)/**/**/*.* $(IMGDIR)/**/*.* $(IMGDIR)/*.*)
 img_out=$(patsubst $(IMGDIR)/%,$(DISTDIR)/img/%,$(img_in))

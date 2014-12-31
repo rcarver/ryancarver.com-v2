@@ -292,6 +292,10 @@ body {
   a {
     @include link-standard;
   }
+  
+  img {
+    width: 100%;
+  }
 
   .rc-feat,
   .rc-name {
