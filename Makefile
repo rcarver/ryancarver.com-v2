@@ -63,11 +63,12 @@ pages_out=$(patsubst $(SRCDIR)/pages/%.kit,$(DISTDIR)/%.html,$(pages_in))
 photos_full=$(wildcard $(PHOTODIR)/full/**/**/*.* $(PHOTODIR)/full/**/*.* $(PHOTODIR)/full/*.*)
 
 photos_lg=$(patsubst $(PHOTODIR)/full/%,$(PHOTODIR)/lg/%,$(photos_full))
+photos_md=$(patsubst $(PHOTODIR)/full/%,$(PHOTODIR)/md/%,$(photos_full))
 photos_sm=$(patsubst $(PHOTODIR)/full/%,$(PHOTODIR)/sm/%,$(photos_full))
-photos_to_convert=$(photos_lg) $(photos_sm)
+photos_xs=$(patsubst $(PHOTODIR)/full/%,$(PHOTODIR)/xs/%,$(photos_full))
 
-photos_all=$(photos_full) $(photos_lg) $(photos_sm)
-photos_out=$(patsubst $(PHOTODIR)/%,$(DISTDIR)/img/gallery/%,$(photos_all))
+photos_to_convert=$(photos_lg) $(photos_md) $(photos_sm) $(photos_xs)
+photos_out=$(patsubst $(PHOTODIR)/%,$(DISTDIR)/img/gallery/%,$(photos_to_convert))
 
 
 # Public API
@@ -136,17 +137,26 @@ $(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit $(wildcard $(BUILDDIR)/pages/_*.kit)
 convert_photos: $(photos_to_convert)
 
 clean_photos: 
-	rm -rf $(PHOTODIR)/sm
 	rm -rf $(PHOTODIR)/lg
-
+	rm -rf $(PHOTODIR)/md
+	rm -rf $(PHOTODIR)/sm
+	rm -rf $(PHOTODIR)/xs
 
 .PHONY: convert_photos clean_photos
 
 $(PHOTODIR)/lg/%: $(PHOTODIR)/full/%
 	@mkdir -p $(dir $@)
-	convert $< -resize 800 $@
+	convert $< -resize 1280 $@
+
+$(PHOTODIR)/md/%: $(PHOTODIR)/full/%
+	@mkdir -p $(dir $@)
+	convert $< -resize 1000 $@
 
 $(PHOTODIR)/sm/%: $(PHOTODIR)/full/%
+	@mkdir -p $(dir $@)
+	convert $< -resize 800 $@
+
+$(PHOTODIR)/xs/%: $(PHOTODIR)/full/%
 	@mkdir -p $(dir $@)
 	convert $< -resize 480 $@
 

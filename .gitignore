@@ -4,5 +4,7 @@ build
 dist
 node_modules
 .s3cfg
-photos/sm
 photos/lg
+photos/md
+photos/sm
+photos/xs
