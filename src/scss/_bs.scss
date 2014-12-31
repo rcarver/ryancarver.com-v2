@@ -37,8 +37,7 @@ $container-sm: (720px + $grid-gutter-width);
 $container-md: (940px + $grid-gutter-width);
 
 // Large screen / wide desktop
-//$container-lg: (1140px + $grid-gutter-width);
-$container-lg: $container-md;
+$container-lg: (1140px + $grid-gutter-width);
 
 
 // Mixins  
