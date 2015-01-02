@@ -615,6 +615,129 @@ body {
 }
 
 
+
+// About
+// ============================================================================
+
+.rc-about-masthead {
+  margin-bottom: 14px;
+
+  @media (min-width: $screen-sm-min) {
+    margin-top: -20px;
+    margin-bottom: 24px;
+  }
+  
+  @media (min-width: $screen-md-min) {
+    margin-bottom: 44px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.rc-about-container {
+  @include container-fixed($grid-gutter-width);
+  color: #333;
+
+  @media (min-width: $screen-md-min) {
+    @include container-fixed($grid-gutter-width);
+    width: $container-md;
+  }
+
+  a {
+    @include link-standard;
+    color: #222;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 1.25em;
+  }
+  
+  h2 {
+    font-size: 20px;
+    line-height: 1;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 0.03em;
+  }
+  
+  dt {
+    line-height: 1.2;
+    margin-bottom: .3em;
+  }
+
+  dd {
+    margin-bottom: 1.5em;
+    
+    a {
+      @include link-standard;
+      color: #888;
+    }
+  }
+
+  .rc-col-a {
+    
+    .rc-wrapper {
+      padding-left: 5px;
+      width: 100%;
+      
+      @media (min-width: $screen-sm-min) {
+        width: 95%;
+      }
+
+      @media (min-width: $screen-md-min) {
+        padding-left: 20px;
+      }
+    }
+    
+    .rc-smaller {
+
+      p {
+        font-size: 13px;
+      }
+      
+      h2 {
+        font-size: 17px;
+      }
+    }
+        
+    dl {
+      display: none;
+
+      @media (max-width: $screen-xs-max) {
+        display: block;
+      }
+    }
+  }
+  
+  .rc-col-b {
+    font-size: 13px;
+    
+    .rc-wrapper {
+      padding-top: 7px;
+      padding-left: 5px;
+
+      @media (min-width: $screen-sm-min) {
+        padding-left: 0;
+      }      
+    }
+        
+    dl {
+      display: block;
+
+      @media (max-width: $screen-xs-max) {
+        display: none;
+      }
+    }
+  }
+}
+
 // Back to Top
 // ============================================================================
 
