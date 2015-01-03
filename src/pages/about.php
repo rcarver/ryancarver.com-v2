@@ -65,7 +65,7 @@
               <h2>Archives</h2>
 
               <p>
-                This is the second version of my photography website. The <a href="http://www.ryancarver.com/archives/v1/">previous version</a>, with work from 2009-2010 is also available.
+                This is the second version of my photography website. The <a href="http://www.ryancarver.com/archives/v1/">previous version</a>, with work from 2009-2010, is also available.
               </p>
             </div>
           </div>
