@@ -5,7 +5,11 @@
 BUILDENV?=dev
 
 # Don't actually write files to prodution.
-DRYRUN?=--dry-run
+ifndef DRYRUN
+  DRYRUN=
+else
+  DRYRUN=--dry-run
+endif
 
 # Path to host the pages at.
 BASEURL=/archives/v2
