@@ -79,6 +79,6 @@
     <?php include "_backtotop.php" ?>
     <?php include "_footer.php" ?> 
 
-    <script src="<?= $baseurl ?>/js/main.js"></script>
+    <?php include "_scripts.php" ?> 
   </body>
 </html>
