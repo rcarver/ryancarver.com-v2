@@ -13,12 +13,12 @@ function die_on_error($errno, $errstr, $errfile, $errline) {
 set_error_handler("die_on_error");
 
 $options = getopt("", array(
-  "baseurl::",
+  "baseurl:",
   "livereload",
   "checkvars"
 ));
 
-$baseurl = $options['baseurl'];
+$baseurl = array_key_exists('baseurl', $options) ? $options['baseurl'] : '';
 $livereload = array_key_exists('livereload', $options);
 $checkvars = array_key_exists('checkvars', $options);
 
