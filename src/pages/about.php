@@ -39,11 +39,11 @@
             </p>
 
             <dl>
-              <dt>Follow ryan-carver-photo on Tumblr</dt>
-              <dd><a href="http://blog.ryancarver.com/">http://blog.ryancarver.com/</a></dd>
+              <dt>See my latest work on Tumblr</dt>
+              <dd><a href="http://blog.ryancarver.com/">ryan-carver-photo</a></dd>
 
-              <dt>Follow me on Twitter</dt>
-              <dd><a href="https://twitter.com/rcarver">@rcarver</a></dd>
+              <dt>Follow me on social networks</dt>
+              <dd><a href="https://twitter.com/rcarver">Twitter</a>, <a href="https://instagram.com/rcarver">Instagram</a></dd>
 
               <dt>Prints, commissions or licensing</dt>
               <dd>ryan at ryancarver.com</dd>
@@ -73,11 +73,11 @@
         <div class="col-sm-4 rc-col-b">
           <div class="rc-wrapper">
             <dl>
-              <dt>Follow ryan-carver-photo on Tumblr</dt>
-              <dd><a href="http://blog.ryancarver.com/">http://blog.ryancarver.com/</a></dd>
+              <dt>See my latest work on Tumblr</dt>
+              <dd><a href="http://blog.ryancarver.com/">ryan-carver-photo</a></dd>
 
-              <dt>Follow me on Twitter</dt>
-              <dd><a href="https://twitter.com/rcarver">@rcarver</a></dd>
+              <dt>Follow me on social networks</dt>
+              <dd><a href="https://twitter.com/rcarver">Twitter</a>, <a href="https://instagram.com/rcarver">Instagram</a></dd>
 
               <dt>Prints, commissions or licensing</dt>
               <dd>ryan at ryancarver.com</dd>
