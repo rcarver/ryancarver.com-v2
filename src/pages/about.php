@@ -26,7 +26,7 @@
                  media="(max-width: 991px)">
         <source srcset="<?= $baseurl ?>/img/about-lg.jpg    1440w,
                         <?= $baseurl ?>/img/about-lg@2x.jpg 2880w">
-        <img srcset="!--$baseurl-->/img/about-sm.jpg">
+        <img srcset="<?= $baseurl ?>/img/about-sm.jpg">
       </picture>
     </div>
 
