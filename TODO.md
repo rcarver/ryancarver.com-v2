@@ -1,5 +1,5 @@
 * [ ] Lazy load images
-* [ ] Implement srcset/picture http://scottjehl.github.io/picturefill/
-* [ ] Design & Write About page
+* [x] Implement srcset/picture http://scottjehl.github.io/picturefill/
+* [x] Design & Write About page
 * [ ] Write Firecracker
 
