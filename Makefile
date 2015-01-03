@@ -28,7 +28,12 @@ PHOTODIR=photos
 
 NODEPATH=/usr/local/bin
 
-KITIFY=PATH=$(NODEPATH) tools/kitify
+PHP=php
+PHPFLAGS=-n -d include_path=$(SRCDIR)/pages -d error_reporting=-1 -d display_errors=stderr
+PHPARGS=--baseurl=$(BASEURL)
+ifeq ($(BUILDENV),dev)
+	PHPARGS+= --livereload
+endif
 
 LIVERELOAD=tools/livereload-start
 LIVERELOAD_UPDATE=tools/livereload-update
@@ -61,8 +66,8 @@ fonts_out=$(patsubst $(FONTDIR)/%,$(DISTDIR)/fonts/%,$(fonts_in))
 bootstrap_in=$(wildcard vendor/bootstrap/css/*.min.css)
 bootstrap_out=$(patsubst vendor/bootstrap/css/%,$(DISTDIR)/bootstrap/css/%,$(bootstrap_in))
 
-pages_in=$(filter-out $(SRCDIR)/pages/_%,$(wildcard $(SRCDIR)/pages/*.kit))
-pages_out=$(patsubst $(SRCDIR)/pages/%.kit,$(DISTDIR)/%.html,$(pages_in))
+pages_in=$(filter-out $(SRCDIR)/pages/_%,$(wildcard $(SRCDIR)/pages/*.php))
+pages_out=$(patsubst $(SRCDIR)/pages/%.php,$(DISTDIR)/%.html,$(pages_in))
 
 photos_full=$(wildcard $(PHOTODIR)/full/**/**/*.* $(PHOTODIR)/full/**/*.* $(PHOTODIR)/full/*.*)
 
@@ -130,10 +135,12 @@ $(DISTDIR)/js/%.js: $(BUILDDIR)/js/%.js $(js_libs)
 	@mkdir -p $(dir $@)
 	$(UGLIFY) $(UGLIFYFLAGS) -- $(js_libs) $< > $@
 
-$(DISTDIR)/%.html: $(BUILDDIR)/pages/%.kit $(wildcard $(BUILDDIR)/pages/_*.kit)
+$(DISTDIR)/%.html: $(BUILDDIR)/pages/%.php $(wildcard $(BUILDDIR)/pages/_*.php)
 	@mkdir -p $(dir $@)
-	$(KITIFY) $< > $@
+	$(PHP) $(PHPFLAGS) -f $< -- $(PHPARGS) > $@
 
+phpvars:
+	$(PHP) $(PHPFLAGS) -r 'include "_variables.php";' -- $(PHPARGS) --checkvars
 
 # Build Gallery images.
 # =============================================================================
@@ -169,24 +176,12 @@ $(PHOTODIR)/xs/%: $(PHOTODIR)/full/%
 # =============================================================================
 
 src_in=$(shell find $(SRCDIR) -type f)
-build_configs=$(BUILDDIR)/pages/_variables.kit $(BUILDDIR)/pages/_livereload.kit $(BUILDDIR)/scss/_variables.scss 
 
-build: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%) $(build_configs)
+build: $(src_in:$(SRCDIR)/%=$(BUILDDIR)/%)
 
 $(BUILDDIR)/%: $(SRCDIR)/%
 	@mkdir -p $(dir $@)
 	cp $^ $@
-
-$(BUILDDIR)/pages/_variables.kit:
-	echo '<!-- $$baseurl=$(BASEURL) -->' > $@
-
-$(BUILDDIR)/pages/_livereload.kit:
-ifeq ($(BUILDENV),prod)
-	echo '' > $@
-endif
-
-$(BUILDDIR)/scss/_variables.scss:
-	echo '$$baseurl:"$(BASEURL)";' > $@
 
 
 # Development. Tools to help you make changes.
@@ -197,7 +192,7 @@ opt:
 
 watch:
 	watchman watch $(shell pwd)
-	watchman -- trigger $(shell pwd) remake '$(SRCDIR)/*.kit' '$(SRCDIR)/*.scss' '$(SRCDIR)/*.js' -- make redev
+	watchman -- trigger $(shell pwd) remake '$(SRCDIR)/*.php' '$(SRCDIR)/*.scss' '$(SRCDIR)/*.js' -- make redev
 	watchman -- trigger $(shell pwd) livereload '$(DISTDIR)/*.html' '$(DISTDIR)/*.css' '$(DISTDIR)/*.js' -- $(LIVERELOAD_UPDATE)
 
 watch_stop:

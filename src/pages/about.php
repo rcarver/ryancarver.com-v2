@@ -1,4 +1,4 @@
-<!-- @import variables -->
+<?php include "_variables.php" ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,25 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ryan Carver Photography | About</title>
 
-    <!-- @import assets -->
+    <?php include "_assets.php" ?>
   </head>
   <body>
-    <!-- @import menu.kit -->
-    <!-- @import header.kit -->   
+    <?php include "_menu.php" ?>
+    <?php include "_header.php" ?>   
     
     <div class="rc-about-masthead">
       <picture>
-        <source srcset="<!--$baseurl-->/img/about-xs.jpg,
-                        <!--$baseurl-->/img/about-xs@2x.jpg"
+        <source srcset="<?= $baseurl ?>/img/about-xs.jpg,
+                        <?= $baseurl ?>/img/about-xs@2x.jpg"
                  media="(max-width: 479px)">
-        <source srcset="<!--$baseurl-->/img/about-sm.jpg,
-                        <!--$baseurl-->/img/about-sm@2x.jpg 2x"
+        <source srcset="<?= $baseurl ?>/img/about-sm.jpg,
+                        <?= $baseurl ?>/img/about-sm@2x.jpg 2x"
                  media="(max-width: 767px)">
-        <source srcset="<!--$baseurl-->/img/about-md.jpg,
-                        <!--$baseurl-->/img/about-md@2x.jpg 2x"
+        <source srcset="<?= $baseurl ?>/img/about-md.jpg,
+                        <?= $baseurl ?>/img/about-md@2x.jpg 2x"
                  media="(max-width: 991px)">
-        <source srcset="<!--$baseurl-->/img/about-lg.jpg    1440w,
-                        <!--$baseurl-->/img/about-lg@2x.jpg 2880w">
+        <source srcset="<?= $baseurl ?>/img/about-lg.jpg    1440w,
+                        <?= $baseurl ?>/img/about-lg@2x.jpg 2880w">
         <img srcset="!--$baseurl-->/img/about-sm.jpg">
       </picture>
     </div>
@@ -59,7 +59,7 @@
                 The text is set in <a href="https://typekit.com/fonts/ff-tisa-web-pro">FF Tisa from FontFont</a> and served by <a href="https://typekit.com/">Typekit</a>. 
               </p>
               <p>
-                <a href="<!--$baseurl-->/firecracker.html">Firecracker</a> is set in <a href="http://www.typography.com/fonts/hoefler-text/overview/">Hoefler Text by Hoefler &amp; Co</a>, and served by <a href="http://www.typography.com/cloud/welcome/">Cloud.Typography</a>.
+                <a href="<?= $baseurl ?>/firecracker.html">Firecracker</a> is set in <a href="http://www.typography.com/fonts/hoefler-text/overview/">Hoefler Text by Hoefler &amp; Co</a>, and served by <a href="http://www.typography.com/cloud/welcome/">Cloud.Typography</a>.
               </p>
 
               <h2>Archives</h2>
@@ -87,8 +87,8 @@
       </div>
     </div>
 
-    <!-- @import footer.kit --> 
+    <?php include "_footer.php" ?> 
 
-    <script src="<!--$baseurl-->/js/main.js"></script>
+    <script src="<?= $baseurl ?>/js/main.js"></script>
   </body>
 </html>
