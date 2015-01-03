@@ -1,7 +1,0 @@
-#!/usr/bin/env node
-
-// https://github.com/jeremyworboys/node-kit
-
-var kit = require('node-kit');
-var html = kit(process.argv[2]);
-process.stdout.write(html + '\n');
