@@ -212,4 +212,12 @@ work:
 # =============================================================================
 
 upload:
-	s3cmd --config=.s3cfg sync $(DISTDIR)/ $(DRYRUN) --delete-removed s3://www.ryancarver.com$(BASEURL)/
+	# NOTE: we can't use --delete-removed because it would delete the /archives path. See `clean_remote`
+	s3cmd --config=.s3cfg sync $(DISTDIR)/ $(DRYRUN) s3://www.ryancarver.com$(BASEURL)/
+
+# Remove everything from the s3 bucket, except the /archives dir.
+clean_remote:
+	s3cmd --config=.s3cfg ls s3://www.ryancarver.com/ | grep -v /archives | grep DIR    | awk '{print $$2}' >  tmpfiles
+	s3cmd --config=.s3cfg ls s3://www.ryancarver.com/ | grep -v /archives | grep -v DIR | awk '{print $$4}' >> tmpfiles
+	cat tmpfiles | xargs -n1 s3cmd --config=.s3cfg del --recursive $(DRYRUN)
+	rm tmpfiles
