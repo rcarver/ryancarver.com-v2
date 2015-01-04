@@ -12,7 +12,11 @@ else
 endif
 
 # Path to host the pages at.
-BASEURL=/archives/v2
+ifeq ($(BUILDENV),dev)
+  BASEURL=
+else
+  BASEURL=/archives/v2
+endif
 
 # Describe the src->build->dist->serve workflow.
 SERVEDIR=dist/$(BUILDENV)
