@@ -15,7 +15,7 @@ endif
 ifeq ($(BUILDENV),dev)
   BASEURL=
 else
-  BASEURL=/archives/v2
+  BASEURL=
 endif
 
 # Describe the src->build->dist->serve workflow.
