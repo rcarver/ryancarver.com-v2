@@ -32,7 +32,7 @@ PHP=php
 PHPFLAGS=-n -d include_path=$(SRCDIR)/pages -d error_reporting=-1 -d display_errors=stderr
 PHPARGS=--baseurl='$(BASEURL)'
 ifeq ($(BUILDENV),dev)
-	PHPARGS+= --livereload
+  PHPARGS+= --livereload
 endif
 
 LIVERELOAD=tools/livereload-start
@@ -192,7 +192,7 @@ opt:
 
 watch:
 	watchman watch $(shell pwd)
-	watchman -- trigger $(shell pwd) remake '$(SRCDIR)/*.php' '$(SRCDIR)/*.scss' '$(SRCDIR)/*.js' -- make redev
+	watchman -- trigger $(shell pwd) remake '$(SRCDIR)/*.php' '$(SRCDIR)/*.scss' '$(SRCDIR)/*.js' -- $(MAKE) redev
 	watchman -- trigger $(shell pwd) livereload '$(DISTDIR)/*.html' '$(DISTDIR)/*.css' '$(DISTDIR)/*.js' -- $(LIVERELOAD_UPDATE)
 
 watch_stop:
