@@ -39,7 +39,7 @@
           </a>
         </div>
         <div class="col-xs-4">
-          <a href="<?= $baseurl ?>/proteced-spaces.html">
+          <a href="<?= $baseurl ?>/protected-spaces.html">
             <img src="<?= $baseurl ?>/img/thumb-protected-spaces.jpg">
             <span class="rc-title">Protected Spaces</span>
           </a>
