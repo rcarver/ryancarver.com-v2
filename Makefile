@@ -33,7 +33,7 @@ PHOTODIR=photos
 NODEPATH=/usr/local/bin
 
 PHP=php
-PHPFLAGS=-n -d include_path=$(SRCDIR)/pages -d error_reporting=-1 -d display_errors=stderr
+PHPFLAGS=-n -d include_path=$(SRCDIR)/pages -d error_reporting=-1 -d display_errors=stderr -d date.timezone=UTC
 PHPARGS=--baseurl='$(BASEURL)'
 ifeq ($(BUILDENV),dev)
   PHPARGS+= --livereload
