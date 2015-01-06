@@ -34,20 +34,7 @@
       <div class="row">
         <div class="col-sm-8 rc-col-a">
           <div class="rc-wrapper">
-            <p>
-              Ryan lives in San Francisco, CA. His photographs often capture the calm and the isolated. These images tend to describe himself, rather than the time or place.
-            </p>
-
-            <dl>
-              <dt>See my latest work on Tumblr</dt>
-              <dd><a href="http://blog.ryancarver.com/">ryan-carver-photo</a></dd>
-
-              <dt>Follow me on social networks</dt>
-              <dd><a href="https://twitter.com/rcarver">Twitter</a>, <a href="https://instagram.com/rcarver">Instagram</a></dd>
-
-              <dt>Prints, commissions or licensing</dt>
-              <dd>ryan at ryancarver.com</dd>
-            </dl>
+            <?php include "_about_sidebar.php" ?>
 
             <div class="rc-smaller">
               <h2>Colophon</h2>
@@ -72,16 +59,7 @@
         </div>
         <div class="col-sm-4 rc-col-b">
           <div class="rc-wrapper">
-            <dl>
-              <dt>See my latest work on Tumblr</dt>
-              <dd><a href="http://blog.ryancarver.com/">ryan-carver-photo</a></dd>
-
-              <dt>Follow me on social networks</dt>
-              <dd><a href="https://twitter.com/rcarver">Twitter</a>, <a href="https://instagram.com/rcarver">Instagram</a></dd>
-
-              <dt>Prints, commissions or licensing</dt>
-              <dd>ryan at ryancarver.com</dd>
-            </dl>
+            <?php include "_about_sidebar.php" ?>
           </div>
         </div>
       </div>
