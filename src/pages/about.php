@@ -34,6 +34,10 @@
       <div class="row">
         <div class="col-sm-8 rc-col-a">
           <div class="rc-wrapper">
+            <p>
+              Ryan lives in San Francisco, CA. His photographs often capture the calm and the isolated. These images tend to describe himself, rather than the time or place.
+            </p>
+
             <?php include "_about_sidebar.php" ?>
 
             <div class="rc-smaller">
