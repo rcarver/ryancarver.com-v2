@@ -214,6 +214,8 @@ work:
 
 # Deployment. Show the world.
 # =============================================================================
+# To create the .s3cfg file, run:
+# s3cmd --config=.s3cfg --configure
 
 upload:
 	# NOTE: we can't use --delete-removed because it would delete the /archives path. See `clean_remote`
