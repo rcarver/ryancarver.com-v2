@@ -38,10 +38,10 @@
               Ryan lives in Berkeley, CA. His photographs often capture the calm and the isolated. These images tend to describe himself, rather than the time or place.
             </p>
             <p>
-              By day, Ryan leads product at <a href="http://vsco.co/">VSCO</a>, an art and technology company empowering people everywhere to create, discover, and connect. 
+              By day, Ryan builds software products for creators. Things like <a href="http://www.typekit.com/">Typekit</a>.
             </p>
             <p>
-              By night, Ryan plays drums in <a href="http://www.thedevelopmentband.com/">The Development</a>, possibly the loudest two-person band you've never heard.
+              By night, Ryan plays in <a href="http://thedevelopment.bandcamp.com/">The Development</a>, a two-piece guitar and drums duo that never grew out of their noise rock phase.
             </p>
 
             <?php include "_about_sidebar.php" ?>
