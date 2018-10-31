@@ -196,8 +196,8 @@ opt:
 
 watch:
 	watchman watch $(shell pwd)
-	watchman -- trigger $(shell pwd) remake '$(SRCDIR)/*.php' '$(SRCDIR)/*.scss' '$(SRCDIR)/*.js' -- $(MAKE) redev
-	watchman -- trigger $(shell pwd) livereload '$(DISTDIR)/*.html' '$(DISTDIR)/*.css' '$(DISTDIR)/*.js' -- $(LIVERELOAD_UPDATE)
+	watchman -- trigger $(shell pwd) remake '$(SRCDIR)/**/*.php' '$(SRCDIR)/**/*.scss' '$(SRCDIR)/**/*.js' -- $(MAKE) redev
+	watchman -- trigger $(shell pwd) livereload '$(DISTDIR)/**/*.html' '$(DISTDIR)/**/*.css' '$(DISTDIR)/**/*.js' -- $(LIVERELOAD_UPDATE)
 
 watch_stop:
 	watchman shutdown-server
