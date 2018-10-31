@@ -502,9 +502,12 @@ body {
 }
 
 .rc-searching-gallery-container {
+  margin-top: 0;
+  margin-bottom: 40px;
 
   img {
-    border: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
   }
 }
 

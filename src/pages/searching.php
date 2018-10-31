@@ -21,11 +21,11 @@
                      <?= $baseurl ?>/img/gallery/sm/searching/header.jpg 800w, 
                      <?= $baseurl ?>/img/gallery/xs/searching/header.jpg 480w"
               sizes="<?= $gallery_sizes_header ?>"
-class="v">
+              class="v">
       <div class="rc-content">
         <p class="rc-intro">
           <span class="rc-title">Searching</span> 
-          <span class="rc-subtitle">Images 2013-2018. Arranged 2018.</span>
+          <span class="rc-subtitle">2018</span>
         </p>
         <p class="rc-copy">
           Searching is a story of loss and the struggle to replace it.
