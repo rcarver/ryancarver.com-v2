@@ -43,6 +43,7 @@ unknown to the artist.
         </p>
         <p class="rc-copy">
 Presented as 18 giclée prints on Hahnemühle Photo Rag. Large images are 30x40 inches, small are 15x20 inches.
+View <a href="https://www.dropbox.com/home/photography/shows/2018%20Searching/01.%20Proofs">larger image samples</a>.
         </p>
       </div>
     </div>
