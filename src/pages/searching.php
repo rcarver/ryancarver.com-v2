@@ -21,7 +21,7 @@
                      <?= $baseurl ?>/img/gallery/sm/searching/header.jpg 800w, 
                      <?= $baseurl ?>/img/gallery/xs/searching/header.jpg 480w"
               sizes="<?= $gallery_sizes_header ?>"
-              class="v">
+              class="vv">
       <div class="rc-content">
         <p class="rc-intro">
           <span class="rc-title">Searching</span> 
