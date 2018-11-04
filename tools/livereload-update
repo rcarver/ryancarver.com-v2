@@ -4,6 +4,7 @@
 
 files=$(echo $@ | tr ' ' ,)
 
+sleep 0.1
 echo Livereload $@
 curl -s "http://localhost:35729/changed?files=$files"
 
