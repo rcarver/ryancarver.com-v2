@@ -27,6 +27,10 @@ IMGDIR=src/img
 FONTDIR=src/fonts
 PHOTODIR=photos
 
+# Deployment to AWS
+AWS_PROFILE=ryancarver
+AWS_CLOUDFRONT_DISTRIBUTION=E8BQHPJ4O5H5L
+
 # Tools
 # -----------------------------------------------------------------------------
 
@@ -95,7 +99,7 @@ prod:
 	BUILDENV=prod $(MAKE) clean build dist
 
 deploy: 
-	BUILDENV=prod $(MAKE) prod upload
+	BUILDENV=prod $(MAKE) prod upload invalidate_cloudfront
 
 clean:
 	rm -rf $(BUILDDIR) $(DISTDIR)
@@ -107,7 +111,7 @@ deps:
 	brew install watchman
 	brew install imagemagick
 
-.PHONY: dev prod build deploy clean deps upload
+.PHONY: dev prod build deploy clean deps upload invalidate_cloudfront
 
 
 # Distribute. Package and optimize files for deployment.
@@ -227,3 +231,7 @@ clean_remote:
 	s3cmd --config=.s3cfg ls s3://www.ryancarver.com/ | grep -v /archives | grep -v DIR | awk '{print $$4}' >> tmpfiles
 	cat tmpfiles | xargs -n1 s3cmd --config=.s3cfg del --recursive $(DRYRUN)
 	rm tmpfiles
+
+invalidate_cloudfront:
+	aws cloudfront --profile=$(AWS_PROFILE) create-invalidation --distribution-id $(AWS_CLOUDFRONT_DISTRIBUTION) --paths '/*'
+
