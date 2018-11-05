@@ -8,7 +8,7 @@ BUILDENV?=dev
 ifndef DRYRUN
   DRYRUN=
 else
-  DRYRUN=--dry-run
+  DRYRUN=--dryrun
 endif
 
 # Path to host the pages at.
@@ -219,18 +219,17 @@ work:
 # Deployment. Show the world.
 # =============================================================================
 # To create the .s3cfg file, run:
-# s3cmd --config=.s3cfg --configure
+
+config_aws:
+	aws configure --profile=$(AWS_PROFILE)
 
 upload:
-	# NOTE: we can't use --delete-removed because it would delete the /archives path. See `clean_remote`
-	s3cmd --config=.s3cfg sync $(DISTDIR)/ $(DRYRUN) s3://www.ryancarver.com$(BASEURL)/
+	# Sync everything, ignoring the /archives dir.
+	aws s3 sync --profile=$(AWS_PROFILE) $(DRYRUN) --delete --exclude='archives/*' $(DISTDIR) s3://www.ryancarver.com$(BASEURL)/
 
 # Remove everything from the s3 bucket, except the /archives dir.
 clean_remote:
-	s3cmd --config=.s3cfg ls s3://www.ryancarver.com/ | grep -v /archives | grep DIR    | awk '{print $$2}' >  tmpfiles
-	s3cmd --config=.s3cfg ls s3://www.ryancarver.com/ | grep -v /archives | grep -v DIR | awk '{print $$4}' >> tmpfiles
-	cat tmpfiles | xargs -n1 s3cmd --config=.s3cfg del --recursive $(DRYRUN)
-	rm tmpfiles
+	aws s3 rm --profile=$(AWS_PROFILE) $(DRYRUN) --recursive --exclude='archives/*' s3://www.ryancarver.com/
 
 invalidate_cloudfront:
 	aws cloudfront --profile=$(AWS_PROFILE) create-invalidation --distribution-id $(AWS_CLOUDFRONT_DISTRIBUTION) --paths '/*'
