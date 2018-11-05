@@ -30,6 +30,9 @@ PHOTODIR=photos
 # Deployment to AWS
 AWS_PROFILE=ryancarver
 AWS_CLOUDFRONT_DISTRIBUTION=E8BQHPJ4O5H5L
+AWS_S3_BUCKET=www.ryancarver.com
+AWS_S3_EXCLUDE='archives/*'
+
 
 # Tools
 # -----------------------------------------------------------------------------
@@ -220,17 +223,19 @@ work:
 # =============================================================================
 # To create the .s3cfg file, run:
 
+# Configure the AWS tool.
 config_aws:
 	aws configure --profile=$(AWS_PROFILE)
 
+# Sync everything, ignoring the /archives dir.
 upload:
-	# Sync everything, ignoring the /archives dir.
-	aws s3 sync --profile=$(AWS_PROFILE) $(DRYRUN) --delete --exclude='archives/*' $(DISTDIR) s3://www.ryancarver.com$(BASEURL)/
+	aws s3 sync --profile=$(AWS_PROFILE) $(DRYRUN) --delete --exclude=$(AWS_S3_EXCLUDE) $(DISTDIR) s3://$(AWS_S3_BUCKET)$(BASEURL)/
 
 # Remove everything from the s3 bucket, except the /archives dir.
 clean_remote:
-	aws s3 rm --profile=$(AWS_PROFILE) $(DRYRUN) --recursive --exclude='archives/*' s3://www.ryancarver.com/
+	aws s3 rm --profile=$(AWS_PROFILE) $(DRYRUN) --recursive --exclude=$(AWS_S3_EXCLUDE) s3://$(AWS_S3_BUCKET)/
 
+# Invalidate Cloudfront cache so the new files are live.
 invalidate_cloudfront:
 	aws cloudfront --profile=$(AWS_PROFILE) create-invalidation --distribution-id $(AWS_CLOUDFRONT_DISTRIBUTION) --paths '/*'
 
