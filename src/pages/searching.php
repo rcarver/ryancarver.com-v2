@@ -28,21 +28,19 @@
           <span class="rc-subtitle">2018</span>
         </p>
         <p class="rc-copy">
-          Searching is a story of loss and the struggle to replace it.
+Sometimes what’s lost is not so much a thing, but a feeling. <br>Perhaps an opportunity. Opportunity cost, they call it. 
         </p>
         <p class="rc-copy">
-Repeating images of interiors, exteriors, roads, and water create the circular
-logic of one’s mind when attempting to find answers.  The sequencing and
-placement of each image forms a visual narrative, through which the viewer is
-invited to participate in their own search for what is lost.  
+This series explores the struggle that is knowing there’s something else out there.  Repeating images of interiors, exteriors, roads, and water create the circular logic of a search for answers. The sequencing and placement of each image forms a visual narrative through which I invite you to explore your own opportunity lost.
         </p>
         <p class="rc-copy">
-The images in this series were captured between 2013 and 2018, in
-moments between life. The loss, and the purpose of the search are as yet
-unknown to the artist. 
+The images in this series were captured between 2013 and 2018, in the
+in-between moments of my life. For years I’ve found myself drawn to these empty
+scenes; I use the camera to capture the feeling of wonder of what could have been, or could still
+be.
         </p>
         <p class="rc-copy">
-Presented as 18 giclée prints on Hahnemühle Photo Rag. Large images are 30x40 inches, small are 15x20 inches.
+<i>Lost</i> is presented as 18 giclée prints on Hahnemühle Photo Rag. Largest images are 30x40 inches, smallest are 15x20 inches.
 View <a href="https://www.dropbox.com/home/photography/shows/2018%20Searching/01.%20Proofs">larger image samples</a>.
         </p>
       </div>
