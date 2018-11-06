@@ -45,7 +45,7 @@ scenes; I use the camera to capture the feeling of wonder of what could have
 been, or could still be.
         </p>
         <p class="rc-copy">
-<i>Lost</i> is presented as 18 giclée prints on Hahnemühle Photo Rag. Largest images are 30x40 inches, smallest are 15x20 inches.
+<i>Searching</i> is presented as 18 giclée prints on Hahnemühle Photo Rag. Largest images are 30x40 inches, smallest are 15x20 inches.
 View <a href="https://www.dropbox.com/home/photography/shows/2018%20Searching/01.%20Proofs">larger image samples</a>.
         </p>
       </div>
