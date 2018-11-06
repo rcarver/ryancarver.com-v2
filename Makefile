@@ -11,6 +11,13 @@ else
   DRYRUN=--dryrun
 endif
 
+# Upload files quickly but perhaps not catching all changes.
+ifndef QUICK
+  QUICK
+else
+  QUICK=--size-only
+endif
+
 # Path to host the pages at.
 ifeq ($(BUILDENV),dev)
   BASEURL=
@@ -229,7 +236,7 @@ config_aws:
 
 # Sync everything, ignoring the /archives dir.
 upload:
-	aws s3 sync --profile=$(AWS_PROFILE) $(DRYRUN) --delete --exclude=$(AWS_S3_EXCLUDE) $(DISTDIR) s3://$(AWS_S3_BUCKET)$(BASEURL)/
+	aws s3 sync --profile=$(AWS_PROFILE) $(DRYRUN) --delete --exclude=$(AWS_S3_EXCLUDE) $(QUICK) $(DISTDIR) s3://$(AWS_S3_BUCKET)$(BASEURL)/
 
 # Remove everything from the s3 bucket, except the /archives dir.
 clean_remote:
