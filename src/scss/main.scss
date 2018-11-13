@@ -284,6 +284,11 @@ body {
   
   img {
     width: 100%;
+    margin: 0 auto;
+
+    &.v {
+      width: 80%
+    }
   }
 
   .rc-feat,

@@ -16,16 +16,16 @@
     
     <div class="rc-container">
       <div class="rc-featured-image">
-        <a href="<?= $baseurl ?>/discovery-bay.html">
-          <img    src="<?= $baseurl ?>/img/gallery/md/discovery-bay/gallery-1.jpg"
-               srcset="<?= $baseurl ?>/img/gallery/lg/discovery-bay/gallery-1.jpg 1280w, 
-                       <?= $baseurl ?>/img/gallery/md/discovery-bay/gallery-1.jpg 1000w, 
-                       <?= $baseurl ?>/img/gallery/sm/discovery-bay/gallery-1.jpg 800w, 
-                       <?= $baseurl ?>/img/gallery/xs/discovery-bay/gallery-1.jpg 480w"
+        <a href="<?= $baseurl ?>/searching.html">
+          <img    src="<?= $baseurl ?>/img/gallery/md/searching/feature.jpg"
+               srcset="<?= $baseurl ?>/img/gallery/lg/searching/feature.jpg 1280w, 
+                       <?= $baseurl ?>/img/gallery/md/searching/feature.jpg 1000w, 
+                       <?= $baseurl ?>/img/gallery/sm/searching/feature.jpg 800w, 
+                       <?= $baseurl ?>/img/gallery/xs/searching/feature.jpg 480w"
                 sizes="<?= $home_sizes_header ?>"
                 class="img-responsive"/>
           <span class="rc-feat">Featured work</span> 
-          <span class="rc-name">Discovery Bay, CA</span>
+          <span class="rc-name">Searching</span>
         </a>
       </div>
     </div>
