@@ -13,7 +13,7 @@ endif
 
 # Upload files quickly but perhaps not catching all changes.
 ifndef QUICK
-  QUICK
+  QUICK=
 else
   QUICK=--size-only
 endif
