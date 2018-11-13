@@ -7,8 +7,9 @@
       <div class="rc-menu-content">
         <h3>Personal</h3>
         <ul class="list-unstyled">
-          <li><a href="<?= $baseurl ?>/portraits.html">Portraits</a></li>
+          <li><a href="<?= $baseurl ?>/searching.html">Searching</a></li>
           <li><a href="<?= $baseurl ?>/discovery-bay.html">Discovery Bay</a></li>
+          <li><a href="<?= $baseurl ?>/portraits.html">Portraits</a></li>
           <li><a href="<?= $baseurl ?>/sun-sand.html">Sun &amp; Sand</a></li>
           <li><a href="<?= $baseurl ?>/details.html">Details</a></li>
           <li><a href="<?= $baseurl ?>/protected-spaces.html">Protected Spaces</a></li>
