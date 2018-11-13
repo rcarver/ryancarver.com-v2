@@ -27,6 +27,11 @@
           <span class="rc-title">Searching</span> 
           <span class="rc-subtitle">2018</span>
         </p>
+        <p class="rc-copy rc-copy-center rc-feature">
+          <b>On display January 11-30, 2019</b><br>
+          The LightRoom Gallery, Berkeley, CA<br>
+          Opening Reception TBD
+        </p>
         <p class="rc-copy">
 Sometimes what’s lost is not so much a thing, but a feeling.<br>
 Perhaps an opportunity. Opportunity cost, they call it.
@@ -46,7 +51,7 @@ be.
         </p>
         <p class="rc-copy">
 <i>Searching</i> is presented as 18 giclée prints on Hahnemühle Photo Rag. Largest images are 30x40 inches, smallest are 15x20 inches.
-View <a href="https://www.dropbox.com/home/photography/shows/2018%20Searching/01.%20Proofs">larger image samples</a>.
+View <a href="https://www.dropbox.com/sh/44xahgnq2ukkwtj/AADwnJlb8eMMoqLtPj4r6m0pa?dl=0">larger image samples</a>.
         </p>
       </div>
     </div>

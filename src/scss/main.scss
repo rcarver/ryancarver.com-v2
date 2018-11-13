@@ -397,6 +397,12 @@ body {
     }
   }
 
+  .rc-copy {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 23px;
+  }
+
   .rc-intro,
   .rc-copy {
     max-width: 620px;
@@ -443,10 +449,9 @@ body {
     }
   }
 
-  .rc-copy {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 23px;
+  .rc-feature {
+    margin-top: -2em;
+    margin-bottom: 2em;
   }
 }
 
