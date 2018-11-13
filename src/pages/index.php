@@ -33,6 +33,12 @@
     <div class="rc-container rc-index-thumbs">
       <div class="row">
         <div class="col-xs-4">
+          <a href="<?= $baseurl ?>/discovery-bay.html">
+            <img src="<?= $baseurl ?>/img/thumb-discovery-bay.jpg">
+            <span class="rc-title">Discovery Bay</span>
+          </a>
+        </div>
+        <div class="col-xs-4">
           <a href="<?= $baseurl ?>/sun-sand.html">
             <img src="<?= $baseurl ?>/img/thumb-sun-sand.jpg">
             <span class="rc-title">Sun &amp; Sand</span>
@@ -44,14 +50,14 @@
             <span class="rc-title">Protected Spaces</span>
           </a>
         </div>
+      </div>
+      <div class="row">
         <div class="col-xs-4">
           <a href="<?= $baseurl ?>/portraits.html">
             <img src="<?= $baseurl ?>/img/thumb-portraits.jpg">
             <span class="rc-title">Portraits</span>
           </a>
         </div>
-      </div>
-      <div class="row">
         <div class="col-xs-4">
           <a href="<?= $baseurl ?>/offscreen-veen.html">
             <img src="<?= $baseurl ?>/img/thumb-offscreen-veen.jpg">
@@ -64,14 +70,14 @@
             <span class="rc-title">Details</span>
           </a>
         </div>
+      </div>
+      <div class="row">
         <div class="col-xs-4">
           <a href="<?= $baseurl ?>/tokyo.html">
             <img src="<?= $baseurl ?>/img/thumb-tokyo.jpg">
             <span class="rc-title">Tokyo</span>
           </a>
         </div>
-      </div>
-      <div class="row">
         <div class="col-xs-4">
           <a href="<?= $baseurl ?>/dead-space.html">
             <img src="<?= $baseurl ?>/img/thumb-dead-space.jpg">
