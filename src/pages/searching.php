@@ -28,9 +28,9 @@
           <span class="rc-subtitle">2018</span>
         </p>
         <p class="rc-copy rc-copy-center rc-feature">
-          <b>On display January 11-30, 2019</b><br>
+          <b>On display January 8-31, 2019</b><br>
           The LightRoom Gallery, Berkeley, CA<br>
-          Opening Reception TBD
+          Opening Reception January 12, 2-5 pm
         </p>
         <p class="rc-copy">
 Sometimes what’s lost is not so much a thing, but a feeling.<br>
