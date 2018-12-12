@@ -53,6 +53,9 @@ be.
 <i>Searching</i> is presented as 18 giclée prints on Hahnemühle Photo Rag. Largest images are 30x40 inches, smallest are 15x20 inches.
 View <a href="https://www.dropbox.com/sh/44xahgnq2ukkwtj/AADwnJlb8eMMoqLtPj4r6m0pa?dl=0">larger image samples</a>.
         </p>
+        <p class="rc-copy rc-copy-center">
+          For prints and other information, email: ryan at ryancarver.com.
+        </p>
       </div>
     </div>
 
