@@ -272,7 +272,9 @@ body {
 // ============================================================================
 
 .rc-featured-image {
-  margin-bottom: 2em;
+  $horizontal-inset: 20px;
+
+  margin: 0 $horizontal-inset 2em $horizontal-inset;
 
   @media (min-width: $screen-sm-min) {
     margin-bottom: 60px;
