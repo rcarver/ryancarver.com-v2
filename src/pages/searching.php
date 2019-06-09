@@ -61,6 +61,7 @@ View <a href="https://www.dropbox.com/sh/44xahgnq2ukkwtj/AADwnJlb8eMMoqLtPj4r6m0
 
     <div class="rc-gallery-container rc-searching-gallery-container">
       <div class="row">
+        <a href="https://www.dropbox.com/sh/44xahgnq2ukkwtj/AADwnJlb8eMMoqLtPj4r6m0pa?dl=0" target="_blank">
         <img    src="<?= $baseurl ?>/img/gallery/sm/searching/screen-01.png"
              srcset="<?= $baseurl ?>/img/gallery/lg/searching/screen-01.png 1280w, 
                      <?= $baseurl ?>/img/gallery/md/searching/screen-01.png 1000w, 
@@ -109,6 +110,7 @@ View <a href="https://www.dropbox.com/sh/44xahgnq2ukkwtj/AADwnJlb8eMMoqLtPj4r6m0
                      <?= $baseurl ?>/img/gallery/sm/searching/screen-08.png 800w, 
                      <?= $baseurl ?>/img/gallery/xs/searching/screen-08.png 480w"
               sizes="<?= $gallery_sizes_1up ?>">
+        </a>
       </div>
     </div>
 
