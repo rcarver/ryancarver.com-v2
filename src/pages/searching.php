@@ -25,12 +25,12 @@
       <div class="rc-content">
         <p class="rc-intro">
           <span class="rc-title">Searching</span> 
-          <span class="rc-subtitle">2018</span>
+          <span class="rc-subtitle">2019</span>
         </p>
         <p class="rc-copy rc-copy-center rc-feature">
-          <b>On display January 8-31, 2019</b><br>
-          The LightRoom Gallery, Berkeley, CA<br>
-          Opening Reception January 12, 2-5 pm
+          <b>On display June 28-July 16, 2019</b><br>
+          <a href="http://mulegallery.com">Mule Gallery</a>, San Francisco, CA<br>
+          Opening Reception June 28, 6-8 pm
         </p>
         <p class="rc-copy">
 Sometimes what’s lost is not so much a thing, but a feeling.<br>
@@ -46,7 +46,7 @@ lost.
         <p class="rc-copy">
 These images were captured between 2013 and 2018, in the in-between moments of
 my life. For years I’ve found myself drawn to these empty scenes; I use the
-camera to capture the feeling of wonder of what could have been, or could still
+camera to capture the feeling of wonder of what could have been, and could still
 be.
         </p>
         <p class="rc-copy">
