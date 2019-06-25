@@ -26,6 +26,10 @@
                 class="img-responsive"/>
           <span class="rc-feat">Featured work</span> 
           <span class="rc-name">Searching</span>
+          <span class="rc-info">
+            On display at Mule Gallery in San Francisco, CA<br>
+            Opening Reception June 28, 6-8 pm
+          </span>
         </a>
       </div>
     </div>

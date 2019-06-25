@@ -28,8 +28,8 @@
           <span class="rc-subtitle">2019</span>
         </p>
         <p class="rc-copy rc-copy-center rc-feature">
-          <b>On display June 28-July 16, 2019</b><br>
-          <a href="http://mulegallery.com">Mule Gallery</a>, San Francisco, CA<br>
+          <b>On display June 28-August 30, 2019</b><br>
+          <a href="http://mulegallery.com/">Mule Gallery in San Francisco, CA</a><br>
           Opening Reception June 28, 6-8 pm
         </p>
         <p class="rc-copy">
@@ -39,18 +39,17 @@ Perhaps an opportunity. Opportunity cost, they call it.
         <p class="rc-copy">
 This series explores the struggle of knowing there’s something else out there.
 Repeating images of interiors, exteriors, roads, and water evoke the circular
-logic of a search for answers. The sequencing and placement of each image form
-a visual narrative through which I invite you to consider your own opportunity
-lost.
+logic of a search for answers. The sequencing of images forms a visual
+narrative through which I invite you to consider your own opportunity lost.
         </p>
         <p class="rc-copy">
-These images were captured between 2013 and 2018, in the in-between moments of
+These images were captured between 2013 and 2019, in the in-between moments of
 my life. For years I’ve found myself drawn to these empty scenes; I use the
-camera to capture the feeling of wonder of what could have been, and could still
-be.
+camera to capture the feeling of wonder of what could have been, and could
+still be.
         </p>
         <p class="rc-copy">
-<i>Searching</i> is presented as 18 giclée prints on Hahnemühle Photo Rag. Largest images are 30x40 inches, smallest are 15x20 inches.
+<i>Searching</i> is presented as 14 giclée prints on Hahnemühle Photo Rag. Largest images are 30x40 inches, smallest are 15x20 inches.
 View <a href="https://www.dropbox.com/sh/44xahgnq2ukkwtj/AADwnJlb8eMMoqLtPj4r6m0pa?dl=0">larger image samples</a>.
         </p>
         <p class="rc-copy rc-copy-center">

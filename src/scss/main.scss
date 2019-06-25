@@ -294,6 +294,7 @@ body {
   }
 
   .rc-feat,
+  .rc-info,
   .rc-name {
     display: block;
     text-align: center;
@@ -316,6 +317,16 @@ body {
 
     @media (min-width: $screen-sm-min) {
       font-size: 18px;
+    }
+  }
+
+  .rc-info {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 20px;
+
+    @media (min-width: $screen-sm-min) {
+      margin-top: 32px - 13px;
     }
   }
 }
