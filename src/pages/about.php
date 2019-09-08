@@ -47,12 +47,19 @@
             <?php include "_about_sidebar.php" ?>
 
             <div class="rc-smaller">
+              <h2>Selected Exhibitions</h2>
+
+              <ul>
+                <li>2019 – Solo Exhibition – <a href="<?= $baseurl ?>/searching.html">Searching</a> at Mule Gallery in San Francisco, CA.</li>
+                <li>2018 – Solo Exhibition – <a href="<?= $baseurl ?>/searching.html">Searching</a> at The Lightroom in Berkeley, CA.</li>
+                <li>2013 – Editorial – Cover and feature in <a href="<?= $baseurl ?>/offscreen-veen.html">Offscreen Magazine Issue #6</a>.</li>
+                <li>2010 – Book – <a href="<?= $baseurl ?>/firecracker.html">Firecracker</a>, a collaboration with Mike Monteiro.</li>
+              </ul>
+ 
               <h2>Colophon</h2>
 
               <p>
                 This website was built using <a href="http://www.gnu.org/software/make/">Make</a>, and a variety of open source tools. The <a href="https://github.com/rcarver/ryancarver.com-v2">source is available</a> on GitHub. 
-              </p>
-              <p>
                 The text is set in <a href="https://typekit.com/fonts/ff-tisa-web-pro">FF Tisa from FontFont</a> and served by <a href="https://typekit.com/">Typekit</a>. 
               </p>
               <p>

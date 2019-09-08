@@ -739,12 +739,21 @@ body {
     
     .rc-smaller {
 
+      h2 {
+        font-size: 17px;
+      }
+
       p {
         font-size: 13px;
       }
-      
-      h2 {
-        font-size: 17px;
+
+      ul {
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          margin-bottom: 0.5em;
+        }
       }
     }
         
