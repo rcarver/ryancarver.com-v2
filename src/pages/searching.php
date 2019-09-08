@@ -28,9 +28,9 @@
           <span class="rc-subtitle">2019</span>
         </p>
         <p class="rc-copy rc-copy-center rc-feature">
-          <b>On display June 28-August 30, 2019</b><br>
+          <b>On display June 28-September 6, 2019</b><br>
           <a href="http://mulegallery.com/">Mule Gallery in San Francisco, CA</a><br>
-          Open July 5 from 6-9pm for North Beach First Fridays
+          Closing event September 6 from 6-9pm.
         </p>
         <p class="rc-copy">
 Sometimes what’s lost is not so much a thing, but a feeling.<br>

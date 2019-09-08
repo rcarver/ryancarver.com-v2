@@ -28,7 +28,7 @@
           <span class="rc-name">Searching</span>
           <span class="rc-info">
             On display at Mule Gallery in San Francisco, CA<br>
-            Open July 5 from 6-9pm for North Beach First Fridays
+            Closing event September 6 from 6-9pm
           </span>
         </a>
       </div>
